@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027 首爾・春川樂高 親子 8 日遊</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4A90E2;
+            --secondary: #FFD166;
+            --success: #06D6A0;
+            --dark: #2B2D42;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background: #EDF2F4; color: var(--dark); padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #E9ECEF; padding-bottom: 20px; }
+        header h1 { color: var(--primary); margin-bottom: 10px; font-size: 28px; }
+        header p { color: var(--gray); font-size: 16px; }
+
+        /* Todo Section */
+        .todo-section { background: #FFF3CD; border-left: 5px solid var(--secondary); padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .todo-section h3 { margin-bottom: 12px; color: #856404; display: flex; align-items: center; gap: 8px; }
+        .todo-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 15px; cursor: pointer; }
+        .todo-item input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+        .todo-item.done { text-decoration: line-through; color: var(--gray); }
+
+        /* Layout */
+        .trip-layout { display: flex; gap: 25px; }
+        .tabs { display: flex; flex-direction: column; gap: 10px; min-width: 160px; }
+        .tab-btn { background: var(--light); border: none; padding: 12px 20px; border-radius: 8px; text-align: left; font-size: 16px; font-weight: 600; color: var(--dark); cursor: pointer; transition: all 0.2s; display: flex; justify-content: space-between; align-items: center; }
+        .tab-btn:hover { background: #E2E8F0; }
+        .tab-btn.active { background: var(--primary); color: white; box-shadow: 0 4px 10px rgba(74,144,226,0.3); }
+        .content-area { flex: 1; background: var(--light); padding: 25px; border-radius: 12px; min-height: 400px; }
+        
+        /* Day Content Styling */
+        .day-panel { display: none; animation: fadeIn 0.3s ease; }
+        .day-panel.active { display: block; }
+        .day-title { color: var(--primary); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #CBD5E1; font-size: 22px; }
+        
+        .section-block { background: white; padding: 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); border-left: 4px solid var(--primary); }
+        .section-block h4 { color: var(--dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 16px; }
+        .section-block p, .section-block li { color: #4A5568; line-height: 1.6; font-size: 15px; }
+        .section-block ul { list-style-position: inside; margin-top: 5px; }
+        
+        .food-block { border-left-color: var(--success); }
+        .alert-block { border-left-color: #E63946; background: #FFEBEB; }
+        .alert-block h4 { color: #E63946; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .trip-layout { flex-direction: column; }
+            .tabs { flex-direction: row; overflow-x: auto; padding-bottom: 10px; min-width: 100%; }
+            .tab-btn { white-space: nowrap; padding: 10px 15px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🗺️ 2027 首爾・春川樂高 親子 8 日遊</h1>
+        <p>👨‍👩‍👧 一家三口（含 5 歲放電小公主）的盛夏慢遊計畫</p>
+    </header>
+
+    <div class="todo-section">
+        <h3><i class="fa-solid fa-list-check"></i> 🚨 貼心出前行進度提醒</h3>
+        <label class="todo-item"><input type="checkbox" onchange="toggleTodo(this)"> 1. 填寫租車資訊</label>
+        <label class="todo-item"><input type="checkbox" onchange="toggleTodo(this)"> 2. 將景點資訊填寫到 Naver Map</label>
+        <label class="todo-item done"><input type="checkbox" checked onchange="toggleTodo(this)"> 3. 寄信給飯店確認是否有收到Agoda的訂單 (已確認完成!)</label>
+    </div>
+
+    <div class="trip-layout">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchDay(event, 'day1')">Day 1 <span>7/25</span></button>
+            <button class="tab-btn" onclick="switchDay(event, 'day2')">Day 2 <span>7/26</span></button>
+            <button class="tab-btn" onclick="switchDay(event, 'day3')">Day 3 <span>7/27</span></button>
+            <button class="tab-btn" onclick="switchDay(event, 'day4')">Day 4 <span>7/28</span></button>
+            <button class="tab-btn" onclick="switchDay(event, 'day5')">Day 5 <span>7/29</span></button>
+            <button class="tab-btn" onclick="switchDay(event, 'day6')">Day 6 <span>7/30</span></button>
+            <button class="tab-btn" onclick="switchDay(event, 'day7')">Day 7 <span>7/31</span></button>
+            <button class="tab-btn" onclick="switchDay(event, 'day8')">Day 8 <span>8/01</span></button>
+        </div>
+
+        <div class="content-area">
+            
+            <div id="day1" class="day-panel active">
+                <div class="day-title">📆 Day 1（7/25 六）抵達首爾</div>
+                <div class="section-block">
+                    <h4><i class="fa-solid fa-plane-arrival"></i> 今日行程</h4>
+                    <p>金浦機場 ➡️ 搭計程車（約 40–50 分鐘）直達江南飯店（Goyouin & Holmes）辦理自助入住（記得先看好操作說明）。</p>
+                </div>
+                <div class="section-block food-block">
+                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
+                    <p>飯店周邊享用溫暖的雪濃湯或經典韓式烤肉。</p>
+                </div>
+            </div>
+
+            <div id="day2" class="day-panel">
+                <div class="day-title">📆 Day 2（7/26 日）動物＋漢江放電日</div>
+                <div class="section-block">
+                    <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
+                    <ul>
+                        <li><strong>10:00</strong> Zoolung Zoolung 永登浦店（門票網路先買好）：餵食水豚、大嘴鳥、小狐獴。</li>
+                        <li><strong>中午：</strong> Times Square（時代廣場）美食街午餐。</li>
+                        <li><strong>下午：</strong> 避開最熱時段，回房睡午覺充電。</li>
+                        <li><strong>16:30</strong> 汝矣島漢江公園：野餐墊放鬆 ➡️ 傍晚搭乘海鷗船（自備蝦味先，先查好當天日落場次）。</li>
+                    </ul>
+                </div>
+                <div class="section-block food-block">
+                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
+                    <p>晚餐：The Hyundai Seoul（現代百貨）美食街。</p>
+                </div>
+                <div class="section-block alert-block">
+                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 室內備案</h4>
+                    <p>COEX 水族館＋星空圖書館（從江南過去僅 2 站，完全不曬太陽、淋雨）。</p>
+                </div>
+            </div>
+
+            <div id="day3" class="day-panel">
+                <div class="day-title">📆 Day 3（7/27 一）樂天世界整天 ➡️ 🚗 晚上取車</div>
+                <div class="section-block">
+                    <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
+                    <p>江南搭乘地鐵 2 號線（約 15–20 分鐘）直達樂天世界 ➡️ 暢玩室內兒童區 ➡️ 欣賞精彩遊行 ➡️ 傍晚再戰戶外魔幻島。</p>
+                </div>
+                <div class="section-block" style="border-left-color: #6A1B9A;">
+                    <h4><i class="fa-solid fa-car"></i> 📌 租車重要提醒</h4>
+                    <p><strong>20:00</strong> 預計至 LOTTE Rent-a-Car 江南據點取車（含兒童座椅）。車子可先停在 Goyouin & Holmes 飯店（請預先與飯店確認好車位與規則）。</p>
+                </div>
+                <div class="section-block food-block">
+                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
+                    <p>午餐在樂天園區內享用簡餐；晚餐安排澎湃的人蔘雞湯或三元花園（Samwon Garden）頂級韓牛。</p>
+                </div>
+                <div class="section-block alert-block">
+                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 避暑/雨備策略</h4>
+                    <p>樂天世界有 7 成設施在室內，下雨人反而少！若太熱，戶外魔幻島延到 17:00 後再去，或者 14:00–15:00 先收工回房休息，傍晚加碼隔壁 Seoul Sky 或樂天水族館。</p>
+                </div>
+            </div>
+
+            <div id="day4" class="day-panel">
+                <div class="day-title">📆 Day 4（7/28 二）山海相見：羊駝世界 ➡️ 樂高飯店</div>
+                <div class="section-block">
+                    <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
+                    <ul>
+                        <li><strong>上午：</strong> 行李直接上車，免去當天早上取車流程，直接輕鬆出發！</li>
+                        <li><strong>10:30–13:30</strong> 羊駝世界（和寶貝女兒一起體驗餵羊駝、牽羊駝散步）。</li>
+                        <li><strong>15:30</strong> 抵達春川樂高飯店入住 ➡️ 開玩飯店內設施（積木池、手作工作坊、專屬房間尋寶遊戲）。</li>
+                    </ul>
+                </div>
+                <div class="section-block food-block">
+                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
+                    <p>午餐在園區解決；晚餐在飯店餐廳享用。若想外食，可開車前往春川站前的「俊浩家炭火烤鴨」（口味不辣適合小孩，車位事先跟櫃檯確認）。</p>
+                </div>
+                <div class="section-block alert-block">
+                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 大雨備案</h4>
+                    <p>直接跳過羊駝直奔春川！中午改吃春川蕎麥涼麵，提早入住樂高飯店玩室內設施，光是飯店大廳的樂高積木池就夠小孩玩上半天！</p>
+                </div>
+            </div>
+
+            <div id="day5" class="day-panel">
+                <div class="day-title">📆 Day 5（7/29 三）樂高樂園全日遊</div>
+                <div class="section-block">
+                    <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
+                    <p>提早入園 ➡️ 直奔駕照學校、MINILAND ➡️ 下午前往「海盜海岸」玩水區極限放電！</p>
+                    <p style="margin-top: 10px; color: #E63946;"><i class="fa-solid fa-bag-shopping"></i> <strong>小提醒：</strong> 下午玩水記得帶上全家的泳衣、泳帽與替換衣物。</p>
+                </div>
+                <div class="section-block food-block">
+                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
+                    <p>三餐皆在樂高園區內或主題飯店餐廳輕鬆享用。</p>
+                </div>
+                <div class="section-block alert-block">
+                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 避暑/雨備策略</h4>
+                    <p><strong>中午回飯店房間睡午覺（住園區最大優勢！）</strong>，15:00 後再進場一路玩到閉園。下雨可輪替室內：Factory Adventure Ride、4D 電影院、室內積木遊戲區。</p>
+                </div>
+            </div>
+
+            <div id="day6" class="day-panel">
+                <div class="day-title">📆 Day 6（7/30 四）春川 ➡️ 江南還車 ➡️ 東大門入住</div>
+                <div class="section-block">
+                    <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
+                    <ul>
+                        <li><strong>上午：</strong> 樂高樂園續玩最後巡禮 ➡️ 前往 The Big Shop 採買限定版樂高。</li>
+                        <li><strong>13:30</strong> 出發回首爾（車程預抓 2–2.5 小時以防塞車），先開往東大門飯店（JD Tower Hotel）放行李。</li>
+                        <li><strong>傍晚：</strong> 開車回江南，<strong>20:00 前至 LOTTE Rent-a-Car 江南據點同站還車</strong>。還車後搭計程車或地鐵回東大門。</li>
+                    </ul>
+                </div>
+                <div class="section-block food-block">
+                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
+                    <p>晚餐：陳玉華一隻雞（就在東大門住處附近）或在江南還車周邊享用知名的明洞餃子。</p>
+                </div>
+                <div class="section-block alert-block">
+                    <h4><i class="fa-solid fa-lightbulb"></i> 💡 避塞車替代方案</h4>
+                    <p>若想避開交通尖峰，可以提早在 13:00 前出發；或者在春川吃完晚餐，等 19:00 後再開回首爾（讓孩子在車上睡）。若上午遇到大雨，則在飯店工作坊玩到退房直接回首爾，下午帶小孩去東大門飯店泳池玩。</p>
+                </div>
+            </div>
+
+            <div id="day7" class="day-panel">
+                <div class="day-title">📆 Day 7（7/31 五）公園放風＋購物採買日</div>
+                <div class="section-block">
+                    <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
+                    <ul>
+                        <li><strong>09:00–11:30</strong> 兒童大公園（趁早晨天氣還涼快時看動物、玩戶外遊戲場，免門票，看狀況隨時撤退）。</li>
+                        <li><strong>下午：</strong> 昌信洞文具玩具街（從小品天堂走路就能到，騎樓有遮蔭，採買玩具禮物首選）。</li>
+                        <li><strong>傍晚：</strong> 明洞 Olive Young 補貨 ➡️ 樂天超市首爾站店大採購（海苔、烏龜餅乾等伴手禮） ➡️ 晚上回飯店打包行李。</li>
+                    </ul>
+                </div>
+                <div class="section-block food-block">
+                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
+                    <p>中午：陳玉華一隻雞（前一天沒吃到的話）或東大門在地的道地雪濃湯。</p>
+                </div>
+                <div class="section-block alert-block">
+                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 暴熱/雨備策略</h4>
+                    <p>戶外公園行程作廢 ➡️ 上午改去飯店泳池，或直接逛飯店樓下的 Doota Mall / 現代 City Outlets。昌信洞文具街有騎樓可照逛。</p>
+                </div>
+            </div>
+
+            <div id="day8" class="day-panel">
+                <div class="day-title">📆 Day 8（8/1 六）平安返程</div>
+                <div class="section-block">
+                    <h4><i class="fa-solid fa-plane-departure"></i> 今日行程</h4>
+                    <p><strong>08:00</strong> 準時出發 ➡️ 搭計程車前往金浦機場（車程約 50 分鐘） ➡️ 辦理手續退稅 ➡️ 搭乘 11:15 班機平安回台灣，結束精彩旅程！</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchDay(evt, dayId) {
+        // 切換按鈕 active 狀態
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        evt.currentTarget.classList.add('active');
+
+        // 切換內容顯示
+        const dayPanels = document.querySelectorAll('.day-panel');
+        dayPanels.forEach(panel => panel.classList.remove('active'));
+        document.getElementById(dayId).classList.add('active');
+    }
+
+    function toggleTodo(checkbox) {
+        const label = checkbox.parentElement;
+        if (checkbox.checked) {
+            label.classList.add('done');
+        } else {
+            label.classList.remove('done');
+        }
+    }
+</script>
+
+</body>
+</html>
