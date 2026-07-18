@@ -47,9 +47,15 @@
         .section-block ul { list-style-position: inside; margin-top: 5px; }
         
         /* Map Link Styling */
-        .map-link { color: #0078D7; text-decoration: none; font-size: 0.9em; font-weight: 500; background: #F1F8FF; padding: 2px 6px; border-radius: 4px; border: 1px solid #D0E3F3; transition: all 0.2s; }
+        .map-link { color: #0078D7; text-decoration: none; font-size: 0.9em; font-weight: 500; background: #E1F0FF; padding: 2px 6px; border-radius: 4px; border: 1px solid #BBDDF9; transition: all 0.2s; }
         .map-link:hover { background: #0078D7; color: white; }
         .map-links-wrapper { font-size: 0.9em; color: var(--gray); margin: 0 4px; }
+
+        /* POI Information Box */
+        .poi-info { font-size: 13px; background: #F8FBFF; border: 1px dashed #AECDF2; padding: 10px 15px; border-radius: 6px; margin-top: 6px; margin-bottom: 12px; color: #4A5568; list-style: none !important; }
+        .poi-info li { margin-bottom: 5px !important; line-height: 1.5; padding-left: 0 !important; }
+        .poi-info li:last-child { margin-bottom: 0 !important; }
+        .poi-info b { color: var(--primary); margin-right: 4px; font-weight: 600; }
 
         .food-block { border-left-color: var(--success); }
         .alert-block { border-left-color: #E63946; background: #FFEBEB; }
@@ -82,7 +88,7 @@
 
     <div class="trip-layout">
         <div class="tabs">
-            <button class="tab-btn active" onclick="switchDay(event, 'day1')">Day 1 <span> 7/25 (六)</span></button>
+            <button class="tab-btn" onclick="switchDay(event, 'day1')">Day 1 <span> 7/25 (六)</span></button>
             <button class="tab-btn" onclick="switchDay(event, 'day2')">Day 2 <span> 7/26 (日)</span></button>
             <button class="tab-btn" onclick="switchDay(event, 'day3')">Day 3 <span> 7/27 (一)</span></button>
             <button class="tab-btn" onclick="switchDay(event, 'day4')">Day 4 <span> 7/28 (二)</span></button>
@@ -94,18 +100,34 @@
 
         <div class="content-area">
             
-            <div id="day1" class="day-panel active">
+            <div id="day1" class="day-panel">
                 <div class="day-title">📆 Day 1（7/25 六）抵達首爾</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-plane-arrival"></i> 今日行程</h4>
-                    <p><strong>金浦機場</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=金浦機場" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EA%B9%80%ED%8F%AC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 搭計程車（約 40–50 分鐘）直達江南飯店 <strong>Goyouin & Holmes</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Goyouin+Holmes" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EA%B3%A0%EC%9C%A0%EC%9D%B8%26%ED%99%88%EC%A6%88" target="_blank" class="map-link">Naver Map</a>)</span> 辦理自助入住。</p>
+                    <p><strong>金浦機場</strong> ➡️ 搭計程車（約 40–50 分鐘）直達江南飯店 <strong>Goyouin & Holmes</strong> 辦理自助入住。</p>
+                    <ul class="poi-info">
+                        <li><b>📍 地址：</b> 서울 강남구 선릉로92길 37-6</li>
+                        <li><b>⏰ 入住時間：</b> 15:00 後 Check-in</li>
+                    </ul>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
                     <p>第一天抵達，推薦前往飯店周邊享用溫暖的雪濃湯：</p>
                     <ul>
-                        <li><strong>선릉설렁탕 (宣陵雪濃湯)</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=선릉설렁탕" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/선릉설렁탕" target="_blank" class="map-link">Naver Map</a>)</span></li>
-                        <li><strong>설기옥 선릉본점 (雪基玉 宣陵總店)</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=설기옥+선릉본점" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/설기옥%20선릉본점" target="_blank" class="map-link">Naver Map</a>)</span></li>
+                        <li><strong>선릉설렁탕 (宣陵雪濃湯)</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=선릉설렁탕" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/선릉설렁탕" target="_blank" class="map-link">Naver Map</a>)</span>
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 서울 강남구 선릉로93길 27</li>
+                                <li><b>📞 電話：</b> 02-552-3224</li>
+                                <li><b>⏰ 營業時間：</b> 24 小時營業</li>
+                                <li><b>⭐ 評分：</b> Google 3.9 (Naver 累積大量好評)</li>
+                            </ul>
+                        </li>
+                        <li><strong>설기옥 선릉본점 (雪基玉 宣陵總店)</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=설기옥+선릉본점" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/설기옥%20선릉본점" target="_blank" class="map-link">Naver Map</a>)</span>
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 서울 강남구 역삼동 (宣陵站周邊)</li>
+                                <li><b>⏰ 營業時間：</b> 依現場公告為準</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -115,19 +137,33 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>10:00</strong> <strong>Zoolung Zoolung 永登浦店</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Zoolung+Zoolung+Yeongdeungpo" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A3%BC%EB%A0%81%EC%A3%BC%EB%A0%81+%ED%83%80%EC%9E%84%EC%8A%A4%ED%80%98%EC%96%B4%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span>：門票網路先買好，餵食水豚、大嘴鳥、小狐獴。</li>
-                        <li><strong>中午：</strong> <strong>Times Square 時代廣場</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Times+Square+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%98%81%EB%93%B1%ED%8F%AC+%ED%83%80%EC%9E%84%EC%8A%A4%ED%80%98%EC%96%B4" target="_blank" class="map-link">Naver Map</a>)</span> 美食街午餐。</li>
+                        <li><strong>10:00</strong> <strong>Zoolung Zoolung 永登浦店</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Zoolung+Zoolung+Yeongdeungpo" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A3%BC%EB%A0%81%EC%A3%BC%EB%A0%81+%ED%83%80%EC%9E%84%EC%8A%A4%ED%80%98%EC%96%B4%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span>
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 서울 영등포구 영중로 15 타임스퀘어 4, 5층</li>
+                                <li><b>📞 電話：</b> 1644-2153</li>
+                                <li><b>⏰ 營業時間：</b> 週末 10:30–20:30 (平日 12:00–20:00，每月第一、三週一休)</li>
+                                <li><b>⭐ 評分：</b> Google 4.3</li>
+                            </ul>
+                        </li>
+                        <li><strong>中午：</strong> <strong>Times Square 時代廣場</strong> 美食街午餐。</li>
                         <li><strong>下午：</strong> 避開最熱時段，回房睡午覺充電。</li>
-                        <li><strong>16:30</strong> <strong>汝矣島漢江公園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Yeouido+Hangang+Park" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%97%AC%EC%9D%98%EB%8F%84%ED%95%9C%EA%B0%95%EA%B3%B5%EC%9B%90" target="_blank" class="map-link">Naver Map</a>)</span>：野餐墊放鬆 ➡️ 傍晚搭乘海鷗船（自備蝦味先，先查好日落場次）。</li>
+                        <li><strong>16:30</strong> <strong>汝矣島漢江公園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Yeouido+Hangang+Park" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%97%AC%EC%9D%98%EB%8F%84%ED%95%9C%EA%B0%95%EA%B3%B5%EC%9B%90" target="_blank" class="map-link">Naver Map</a>)</span> 傍晚搭乘海鷗船。
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 서울 영등포구 여의동로 330</li>
+                                <li><b>⏰ 營業時間：</b> 24 小時開放</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>晚餐：<strong>The Hyundai Seoul 現代百貨</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=The+Hyundai+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%8D%94%ED%98%84%EB%8C%80+%EC%84%9C%EC%9A%B8" target="_blank" class="map-link">Naver Map</a>)</span> 美食街。</p>
-                </div>
-                <div class="section-block alert-block">
-                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 室內備案</h4>
-                    <p><strong>COEX 水族館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=COEX+Aquarium" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%BD%94%EC%97%91%EC%8A%A4+%EC%95%84%EC%BF%A0%EC%95%84%EB%A6%AC%EC%9B%80" target="_blank" class="map-link">Naver Map</a>)</span> ＋ <strong>星空圖書館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Starfield+Library" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%B3%84%EB%A7%88%EB%8B%B9%EB%8F%84%EC%84%9C%EA%B4%80" target="_blank" class="map-link">Naver Map</a>)</span>（從江南過去僅 2 站）。</p>
+                    <p>晚餐：<strong>The Hyundai Seoul 現代百貨</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=The+Hyundai+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%8D%94%ED%98%84%EB%8C%80+%EC%84%9C%EC%9A%B8" target="_blank" class="map-link">Naver Map</a>)</span></p>
+                    <ul class="poi-info">
+                        <li><b>📍 地址：</b> 서울 영등포구 여의대로 108</li>
+                        <li><b>📞 電話：</b> 02-767-2233</li>
+                        <li><b>⏰ 營業時間：</b> 10:30–20:00 (週五~週日延長至 20:30)</li>
+                        <li><b>⭐ 評分：</b> Google 4.5</li>
+                    </ul>
                 </div>
             </div>
 
@@ -135,19 +171,21 @@
                 <div class="day-title">📆 Day 3（7/27 一）樂天世界整天 ➡️ 🚗 晚上取車</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
-                    <p>江南搭乘地鐵 2 號線直達 <strong>樂天世界</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+World" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 暢玩室內兒童區 ➡️ 欣賞精彩遊行 ➡️ 傍晚再戰戶外魔幻島。</p>
+                    <p>直達 <strong>樂天世界 Lotte World</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+World" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C" target="_blank" class="map-link">Naver Map</a>)</span></p>
+                    <ul class="poi-info">
+                        <li><b>📍 地址：</b> 서울 송파구 올림픽로 240</li>
+                        <li><b>📞 電話：</b> 1661-2000</li>
+                        <li><b>⏰ 營業時間：</b> 10:00–21:00 (依季節微調)</li>
+                        <li><b>⭐ 評分：</b> Google 4.4</li>
+                    </ul>
                 </div>
                 <div class="section-block" style="border-left-color: #6A1B9A;">
                     <h4><i class="fa-solid fa-car"></i> 📌 租車重要提醒</h4>
-                    <p><strong>20:00</strong> 預計至 <strong>LOTTE Rent-a-Car 江南據點</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+Rent-a-Car+Gangnam" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4+%EA%B0%95%EB%82%A8%EC%A7%80%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span> 取車（含兒童座椅）。車子可先停在 Goyouin & Holmes 飯店。</p>
-                </div>
-                <div class="section-block food-block">
-                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>午餐在樂天園區內享用簡餐；晚餐安排人蔘雞湯或 <strong>三元花園 Samwon Garden 韓牛</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Samwon+Garden" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%82%BC%EC%9B%90%EA%B0%80%EB%93%A0" target="_blank" class="map-link">Naver Map</a>)</span>。</p>
-                </div>
-                <div class="section-block alert-block">
-                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 避暑/雨備策略</h4>
-                    <p>樂天世界有 7 成設施在室內，下雨人反而少！若太熱，戶外魔幻島延到 17:00 後再去，或 14:00–15:00 先收工回房休息。傍晚加碼 <strong>Seoul Sky</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Seoul+Sky" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8A%A4%EC%B9%B4%EC%9D%B4" target="_blank" class="map-link">Naver Map</a>)</span> 或 <strong>樂天水族館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Aquarium" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C+%EC%95%84%EC%BF%A0%EC%95%84%EB%A6%AC%EC%9B%80" target="_blank" class="map-link">Naver Map</a>)</span>。</p>
+                    <p><strong>20:00</strong> 預計至 <strong>LOTTE Rent-a-Car 江南據點</strong> 取車。</p>
+                    <ul class="poi-info">
+                        <li><b>📍 地址：</b> 서울 강남구 테헤란로 114</li>
+                        <li><b>⏰ 營業時間：</b> 08:30–20:00 (請留意打烊時間)</li>
+                    </ul>
                 </div>
             </div>
 
@@ -156,18 +194,16 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>上午：</strong> 行李直接上車，免取車流程直接出發！</li>
-                        <li><strong>10:30–13:30</strong> <strong>羊駝世界 Alpaca World</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Alpaca+World" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%95%8C%ED%8C%8C%EC%B9%B4%EC%9B%94%EB%93%9C" target="_blank" class="map-link">Naver Map</a>)</span>：體驗餵羊駝、牽羊駝散步。</li>
-                        <li><strong>15:30</strong> 抵達 <strong>春川樂高飯店 LEGOLAND Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Hotel+Korea" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span> 入住 ➡️ 開玩飯店設施。</li>
+                        <li><strong>10:30–13:30</strong> <strong>羊駝世界 Alpaca World</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Alpaca+World" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%95%8C%ED%8C%8C%EC%B9%B4%EC%9B%94%EB%93%9C" target="_blank" class="map-link">Naver Map</a>)</span>
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 강원특별자치도 홍천군 화촌면 풍천리 310</li>
+                                <li><b>📞 電話：</b> 1899-2250</li>
+                                <li><b>⏰ 營業時間：</b> 10:00–18:00 (最後入場 16:30)</li>
+                                <li><b>⭐ 評分：</b> Google 4.4</li>
+                            </ul>
+                        </li>
+                        <li><strong>15:30</strong> 抵達 <strong>春川樂高飯店 LEGOLAND Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Hotel+Korea" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span></li>
                     </ul>
-                </div>
-                <div class="section-block food-block">
-                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>午餐園區解決；晚餐飯店享用。想外食可開車去 <strong>俊浩家炭火烤鴨</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=春川+俊浩家" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%B6%98%EC%B2%9C+%EC%A4%80%ED%98%B8%EB%84%A4%EC%88%AF%EB%B6%88%EC%B2%AD%EB%91%A5%EC%98%A4%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span>（口味不辣適合小孩）。</p>
-                </div>
-                <div class="section-block alert-block">
-                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 大雨備案</h4>
-                    <p>跳過羊駝直奔春川！中午改吃蕎麥涼麵，提早入住玩樂高飯店室內積木池。</p>
                 </div>
             </div>
 
@@ -175,16 +211,13 @@
                 <div class="day-title">📆 Day 5（7/29 三）樂高樂園全日遊</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
-                    <p>提早入園 <strong>樂高樂園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Korea" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%EC%BD%94%EB%A6%AC%EC%95%84+%EB%A6%AC%EC%A1%B0%ED%8A%B8" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 直奔駕照學校、MINILAND ➡️ 下午前往「海盜海岸」玩水區極限放電！</p>
-                    <p style="margin-top: 10px; color: #E63946;"><i class="fa-solid fa-bag-shopping"></i> <strong>小提醒：</strong> 下午玩水記得帶泳衣、替換衣物。</p>
-                </div>
-                <div class="section-block food-block">
-                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>三餐皆在樂高園區內或主題飯店餐廳輕鬆享用。</p>
-                </div>
-                <div class="section-block alert-block">
-                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 避暑/雨備策略</h4>
-                    <p><strong>中午回飯店房間睡午覺</strong>，15:00 後再進場。下雨可輪替室內：Factory Adventure Ride、4D 電影院等。</p>
+                    <p>提早入園 <strong>樂高樂園 LEGOLAND Korea</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Korea" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%EC%BD%94%EB%A6%AC%EC%95%84+%EB%A6%AC%EC%A1%B0%ED%8A%B8" target="_blank" class="map-link">Naver Map</a>)</span></p>
+                    <ul class="poi-info">
+                        <li><b>📍 地址：</b> 강원특별자치도 춘천시 하중도길 128</li>
+                        <li><b>📞 電話：</b> 033-815-2300</li>
+                        <li><b>⏰ 營業時間：</b> 10:00–18:00 (建議出發前於官網確認夏令時間)</li>
+                        <li><b>⭐ 評分：</b> Google 4.1</li>
+                    </ul>
                 </div>
             </div>
 
@@ -193,18 +226,23 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>上午：</strong> 樂高樂園續玩 ➡️ The Big Shop 採買。</li>
-                        <li><strong>13:30</strong> 出發回首爾，先前往東大門 <strong>JD Tower Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=JD+Tower+Hotel" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/JD+%ED%83%80%EC%9B%8C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span> 放行李。</li>
-                        <li><strong>傍晚：</strong> 開車回江南，<strong>20:00 前至 LOTTE Rent-a-Car 江南據點同站還車</strong>。</li>
+                        <li><strong>13:30</strong> 出發回首爾，前往東大門 <strong>JD Tower Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=JD+Tower+Hotel" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/JD+%ED%83%80%EC%9B%8C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span> 放行李。
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 서울 중구 동호로 347 (7F)</li>
+                            </ul>
+                        </li>
+                        <li><strong>傍晚：</strong> 開車回江南，<strong>20:00 前至同站還車</strong>。</li>
                     </ul>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>晚餐：<strong>陳玉華一隻雞</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Jin+Okhwa+Original+Chicken+Restaurant" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span> 或還車周邊的 <strong>明洞餃子</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Kyoja" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%AA%85%EB%8F%99%EA%B5%90%EC%9E%90" target="_blank" class="map-link">Naver Map</a>)</span>。</p>
-                </div>
-                <div class="section-block alert-block">
-                    <h4><i class="fa-solid fa-lightbulb"></i> 💡 避塞車替代方案</h4>
-                    <p>提早在 13:00 前出發；或在春川吃完晚餐 19:00 後再開回首爾。</p>
+                    <p>晚餐：<strong>陳玉華一隻雞</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Jin+Okhwa+Original+Chicken+Restaurant" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span></p>
+                    <ul class="poi-info">
+                        <li><b>📍 地址：</b> 서울 종로구 종로40가길 18</li>
+                        <li><b>📞 電話：</b> 02-2275-9666</li>
+                        <li><b>⏰ 營業時間：</b> 10:30–01:00 (23:30 最後點餐)</li>
+                        <li><b>⭐ 評分：</b> Google 4.1</li>
+                    </ul>
                 </div>
             </div>
 
@@ -213,14 +251,26 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>09:00–11:30</strong> <strong>兒童大公園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Children's+Grand+Park+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%8C%80%EA%B3%B5%EC%9B%90" target="_blank" class="map-link">Naver Map</a>)</span> 看動物、玩戶外遊戲場（免門票）。</li>
-                        <li><strong>下午：</strong> <strong>昌信洞文具玩具街</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Changsin-dong+Stationery+and+Toy+Street" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%B0%BD%EC%8B%A0%EB%8F%99+%EB%AC%B8%EA%B5%AC%EC%99%84%EA%B5%AC%EA%B1%B0%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span>（採買玩具禮物首選）。</li>
-                        <li><strong>傍晚：</strong> <strong>明洞 Olive Young</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Olive+Young+Myeongdong" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81+%EB%AA%85%EB%8F%99" target="_blank" class="map-link">Naver Map</a>)</span> 補貨 ➡️ <strong>樂天超市首爾站店</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Seoul+Station" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A7%88%ED%8A%B8+%EC%A0%9C%ED%83%80%ED%94%8C%EB%A0%89%EC%8A%A4+%EC%84%9C%EC%9A%B8%EC%97%AD%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span> 大採購。</li>
+                        <li><strong>09:00</strong> <strong>兒童大公園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Children's+Grand+Park+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%8C%80%EA%B3%B5%EC%9B%90" target="_blank" class="map-link">Naver Map</a>)</span>
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 서울 광진구 능동로 216</li>
+                                <li><b>⏰ 營業時間：</b> 05:00–22:00 (動物園區為 10:00–17:00)</li>
+                                <li><b>⭐ 評分：</b> Google 4.5</li>
+                            </ul>
+                        </li>
+                        <li><strong>下午：</strong> <strong>昌信洞文具玩具街</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Changsin-dong+Stationery+and+Toy+Street" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%B0%BD%EC%8B%A0%EB%8F%99+%EB%AC%B8%EA%B5%AC%EC%99%84%EA%B5%AC%EA%B1%B0%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span>
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 서울 종로구 종로52길 36 周邊</li>
+                                <li><b>⏰ 營業時間：</b> 大多為 08:00–19:00 (各店家不同)</li>
+                            </ul>
+                        </li>
+                        <li><strong>傍晚：</strong> <strong>樂天超市首爾站店</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Seoul+Station" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A7%88%ED%8A%B8+%EC%A0%9C%ED%83%80%ED%94%8C%EB%A0%89%EC%8A%A4+%EC%84%9C%EC%9A%B8%EC%97%AD%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span>
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 서울 중구 한강대로 405</li>
+                                <li><b>⏰ 營業時間：</b> 10:00–24:00 (每月第二、四個週日公休)</li>
+                            </ul>
+                        </li>
                     </ul>
-                </div>
-                <div class="section-block alert-block">
-                    <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 暴熱/雨備策略</h4>
-                    <p>戶外公園作廢 ➡️ 上午改去逛飯店樓下的 <strong>Doota Mall</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Doota+Mall" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%91%90%ED%83%80%EB%AA%B0" target="_blank" class="map-link">Naver Map</a>)</span> / <strong>現代 City Outlets</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Hyundai+City+Outlets+Dongdaemun" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%ED%98%84%EB%8C%80%EC%8B%9C%ED%8B%B0%EC%95%84%EC%9A%B8%EB%A0%9B+%EB%8F%99%EB%8C%80%EB%AC%B8%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span>。昌信洞文具街有騎樓可照逛。</p>
                 </div>
             </div>
 
@@ -238,12 +288,13 @@
 
 <script>
     function switchDay(evt, dayId) {
-        // 切換按鈕 active 狀態
         const tabButtons = document.querySelectorAll('.tab-btn');
         tabButtons.forEach(btn => btn.classList.remove('active'));
-        evt.currentTarget.classList.add('active');
-
-        // 切換內容顯示
+        if(evt && evt.currentTarget) {
+            evt.currentTarget.classList.add('active');
+        } else if (evt && evt.target) {
+            evt.target.closest('button').classList.add('active');
+        }
         const dayPanels = document.querySelectorAll('.day-panel');
         dayPanels.forEach(panel => panel.classList.remove('active'));
         document.getElementById(dayId).classList.add('active');
@@ -257,6 +308,27 @@
             label.classList.remove('done');
         }
     }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const today = new Date();
+        const month = today.getMonth() + 1;
+        const date = today.getDate();
+        let targetId = 'day1';
+        
+        if (month === 7 && date === 26) { targetId = 'day2'; }
+        else if (month === 7 && date === 27) { targetId = 'day3'; }
+        else if (month === 7 && date === 28) { targetId = 'day4'; }
+        else if (month === 7 && date === 29) { targetId = 'day5'; }
+        else if (month === 7 && date === 30) { targetId = 'day6'; }
+        else if (month === 7 && date === 31) { targetId = 'day7'; }
+        else if (month === 8 && date === 1) { targetId = 'day8'; }
+        else if (month === 8 && date > 1 || month > 8) { targetId = 'day8'; }
+
+        const btn = document.querySelector(`button[onclick*="${targetId}"]`);
+        if (btn) {
+            btn.click();
+        }
+    });
 </script>
 
 </body>
