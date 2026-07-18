@@ -46,6 +46,11 @@
         .section-block p, .section-block li { color: #4A5568; line-height: 1.6; font-size: 15px; }
         .section-block ul { list-style-position: inside; margin-top: 5px; }
         
+        /* Map Link Styling */
+        .map-link { color: #0078D7; text-decoration: none; font-size: 0.9em; font-weight: 500; background: #F1F8FF; padding: 2px 6px; border-radius: 4px; border: 1px solid #D0E3F3; transition: all 0.2s; }
+        .map-link:hover { background: #0078D7; color: white; }
+        .map-links-wrapper { font-size: 0.9em; color: var(--gray); margin: 0 4px; }
+
         .food-block { border-left-color: var(--success); }
         .alert-block { border-left-color: #E63946; background: #FFEBEB; }
         .alert-block h4 { color: #E63946; }
@@ -69,7 +74,7 @@
     </header>
 
     <div class="todo-section">
-        <h3><i class="fa-solid fa-list-check"></i> 🚨 貼心出前行進度提醒</h3>
+        <h3><i class="fa-solid fa-list-check"></i> 🚨 貼心出發前進度提醒</h3>
         <label class="todo-item"><input type="checkbox" onchange="toggleTodo(this)"> 1. 填寫租車資訊</label>
         <label class="todo-item"><input type="checkbox" onchange="toggleTodo(this)"> 2. 將景點資訊填寫到 Naver Map</label>
         <label class="todo-item done"><input type="checkbox" checked onchange="toggleTodo(this)"> 3. 寄信給飯店確認是否有收到Agoda的訂單 (已確認完成!)</label>
@@ -93,7 +98,7 @@
                 <div class="day-title">📆 Day 1（7/25 六）抵達首爾</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-plane-arrival"></i> 今日行程</h4>
-                    <p>金浦機場 ➡️ 搭計程車（約 40–50 分鐘）直達江南飯店（Goyouin & Holmes）辦理自助入住（記得先看好操作說明）。</p>
+                    <p><strong>金浦機場</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=%EA%B9%80%ED%8F%AC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EA%B9%80%ED%8F%AC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 搭計程車（約 40–50 分鐘）直達江南飯店 <strong>Goyouin & Holmes</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Goyouin+%26+Holmes" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EA%B3%A0%EC%9C%A0%EC%9D%B8%26%ED%99%88%EC%A6%88" target="_blank" class="map-link">Naver Map</a>)</span> 辦理自助入住。</p>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
@@ -106,19 +111,19 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>10:00</strong> Zoolung Zoolung 永登浦店（門票網路先買好）：餵食水豚、大嘴鳥、小狐獴。</li>
-                        <li><strong>中午：</strong> Times Square（時代廣場）美食街午餐。</li>
+                        <li><strong>10:00</strong> <strong>Zoolung Zoolung 永登浦店</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Zoolung+Zoolung+Times+Square" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A3%BC%EB%A0%81%EC%A3%BC%EB%A0%81+%ED%83%80%EC%9E%84%EC%8A%A4%ED%80%98%EC%96%B4%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span>：門票網路先買好，餵食水豚、大嘴鳥、小狐獴。</li>
+                        <li><strong>中午：</strong> <strong>Times Square 時代廣場</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Times+Square+Yeongdeungpo" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%98%81%EB%93%B1%ED%8F%AC+%ED%83%80%EC%9E%84%EC%8A%A4%ED%80%98%EC%96%B4" target="_blank" class="map-link">Naver Map</a>)</span> 美食街午餐。</li>
                         <li><strong>下午：</strong> 避開最熱時段，回房睡午覺充電。</li>
-                        <li><strong>16:30</strong> 汝矣島漢江公園：野餐墊放鬆 ➡️ 傍晚搭乘海鷗船（自備蝦味先，先查好當天日落場次）。</li>
+                        <li><strong>16:30</strong> <strong>汝矣島漢江公園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Yeouido+Hangang+Park" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%97%AC%EC%9D%98%EB%8F%84%ED%95%9C%EA%B0%95%EA%B3%B5%EC%9B%90" target="_blank" class="map-link">Naver Map</a>)</span>：野餐墊放鬆 ➡️ 傍晚搭乘海鷗船（自備蝦味先，先查好日落場次）。</li>
                     </ul>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>晚餐：The Hyundai Seoul（現代百貨）美食街。</p>
+                    <p>晚餐：<strong>The Hyundai Seoul 現代百貨</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=The+Hyundai+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%8D%94%ED%98%84%EB%8C%80+%EC%84%9C%EC%9A%B8" target="_blank" class="map-link">Naver Map</a>)</span> 美食街。</p>
                 </div>
                 <div class="section-block alert-block">
                     <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 室內備案</h4>
-                    <p>COEX 水族館＋星空圖書館（從江南過去僅 2 站，完全不曬太陽、淋雨）。</p>
+                    <p><strong>COEX 水族館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=COEX+Aquarium" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%BD%94%EC%97%91%EC%8A%A4+%EC%95%84%EC%BF%A0%EC%95%84%EB%A6%AC%EC%9B%80" target="_blank" class="map-link">Naver Map</a>)</span> ＋ <strong>星空圖書館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Starfield+Library+COEX" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%B3%84%EB%A7%88%EB%8B%B9%EB%8F%84%EC%84%9C%EA%B4%80" target="_blank" class="map-link">Naver Map</a>)</span>（從江南過去僅 2 站）。</p>
                 </div>
             </div>
 
@@ -126,19 +131,19 @@
                 <div class="day-title">📆 Day 3（7/27 一）樂天世界整天 ➡️ 🚗 晚上取車</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
-                    <p>江南搭乘地鐵 2 號線（約 15–20 分鐘）直達樂天世界 ➡️ 暢玩室內兒童區 ➡️ 欣賞精彩遊行 ➡️ 傍晚再戰戶外魔幻島。</p>
+                    <p>江南搭乘地鐵 2 號線直達 <strong>樂天世界</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+World" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 暢玩室內兒童區 ➡️ 欣賞精彩遊行 ➡️ 傍晚再戰戶外魔幻島。</p>
                 </div>
                 <div class="section-block" style="border-left-color: #6A1B9A;">
                     <h4><i class="fa-solid fa-car"></i> 📌 租車重要提醒</h4>
-                    <p><strong>20:00</strong> 預計至 LOTTE Rent-a-Car 江南據點取車（含兒童座椅）。車子可先停在 Goyouin & Holmes 飯店（請預先與飯店確認好車位與規則）。</p>
+                    <p><strong>20:00</strong> 預計至 <strong>LOTTE Rent-a-Car 江南據點</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+Rent-a-car+Gangnam" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4+%EA%B0%95%EB%82%A8%EC%A7%80%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span> 取車（含兒童座椅）。車子可先停在 Goyouin & Holmes 飯店。</p>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>午餐在樂天園區內享用簡餐；晚餐安排澎湃的人蔘雞湯或三元花園（Samwon Garden）頂級韓牛。</p>
+                    <p>午餐在樂天園區內享用簡餐；晚餐安排人蔘雞湯或 <strong>三元花園 Samwon Garden 韓牛</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Samwon+Garden" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%82%BC%EC%9B%90%EA%B0%80%EB%93%A0" target="_blank" class="map-link">Naver Map</a>)</span>。</p>
                 </div>
                 <div class="section-block alert-block">
                     <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 避暑/雨備策略</h4>
-                    <p>樂天世界有 7 成設施在室內，下雨人反而少！若太熱，戶外魔幻島延到 17:00 後再去，或者 14:00–15:00 先收工回房休息，傍晚加碼隔壁 Seoul Sky 或樂天水族館。</p>
+                    <p>樂天世界有 7 成設施在室內，下雨人反而少！若太熱，戶外魔幻島延到 17:00 後再去，或 14:00–15:00 先收工回房休息。傍晚加碼 <strong>Seoul Sky</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Seoul+Sky" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8A%A4%EC%B9%B4%EC%9D%B4" target="_blank" class="map-link">Naver Map</a>)</span> 或 <strong>樂天水族館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Aquarium" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C+%EC%95%84%EC%BF%A0%EC%95%84%EB%A6%AC%EC%9B%80" target="_blank" class="map-link">Naver Map</a>)</span>。</p>
                 </div>
             </div>
 
@@ -147,18 +152,18 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>上午：</strong> 行李直接上車，免去當天早上取車流程，直接輕鬆出發！</li>
-                        <li><strong>10:30–13:30</strong> 羊駝世界（和寶貝女兒一起體驗餵羊駝、牽羊駝散步）。</li>
-                        <li><strong>15:30</strong> 抵達春川樂高飯店入住 ➡️ 開玩飯店內設施（積木池、手作工作坊、專屬房間尋寶遊戲）。</li>
+                        <li><strong>上午：</strong> 行李直接上車，免取車流程直接出發！</li>
+                        <li><strong>10:30–13:30</strong> <strong>羊駝世界 Alpaca World</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Alpaca+World" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%95%8C%ED%8C%8C%EC%B9%B4%EC%9B%94%EB%93%9C" target="_blank" class="map-link">Naver Map</a>)</span>：體驗餵羊駝、牽羊駝散步。</li>
+                        <li><strong>15:30</strong> 抵達 <strong>春川樂高飯店 LEGOLAND Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Hotel+Korea" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span> 入住 ➡️ 開玩飯店設施。</li>
                     </ul>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>午餐在園區解決；晚餐在飯店餐廳享用。若想外食，可開車前往春川站前的「俊浩家炭火烤鴨」（口味不辣適合小孩，車位事先跟櫃檯確認）。</p>
+                    <p>午餐園區解決；晚餐飯店享用。想外食可開車去 <strong>俊浩家炭火烤鴨</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=%EC%B6%98%EC%B2%9C+%EC%A4%80%ED%98%B8%EB%84%A4%EC%88%AF%EB%B6%88%EC%B2%AD%EB%91%A5%EC%98%A4%EB%A6%AC" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%B6%98%EC%B2%9C+%EC%A4%80%ED%98%B8%EB%84%A4%EC%88%AF%EB%B6%88%EC%B2%AD%EB%91%A5%EC%98%A4%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span>（口味不辣適合小孩）。</p>
                 </div>
                 <div class="section-block alert-block">
                     <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 大雨備案</h4>
-                    <p>直接跳過羊駝直奔春川！中午改吃春川蕎麥涼麵，提早入住樂高飯店玩室內設施，光是飯店大廳的樂高積木池就夠小孩玩上半天！</p>
+                    <p>跳過羊駝直奔春川！中午改吃蕎麥涼麵，提早入住玩樂高飯店室內積木池。</p>
                 </div>
             </div>
 
@@ -166,8 +171,8 @@
                 <div class="day-title">📆 Day 5（7/29 三）樂高樂園全日遊</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
-                    <p>提早入園 ➡️ 直奔駕照學校、MINILAND ➡️ 下午前往「海盜海岸」玩水區極限放電！</p>
-                    <p style="margin-top: 10px; color: #E63946;"><i class="fa-solid fa-bag-shopping"></i> <strong>小提醒：</strong> 下午玩水記得帶上全家的泳衣、泳帽與替換衣物。</p>
+                    <p>提早入園 <strong>樂高樂園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Korea+Resort" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%EC%BD%94%EB%A6%AC%EC%95%84+%EB%A6%AC%EC%A1%B0%ED%8A%B8" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 直奔駕照學校、MINILAND ➡️ 下午前往「海盜海岸」玩水區極限放電！</p>
+                    <p style="margin-top: 10px; color: #E63946;"><i class="fa-solid fa-bag-shopping"></i> <strong>小提醒：</strong> 下午玩水記得帶泳衣、替換衣物。</p>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
@@ -175,7 +180,7 @@
                 </div>
                 <div class="section-block alert-block">
                     <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 避暑/雨備策略</h4>
-                    <p><strong>中午回飯店房間睡午覺（住園區最大優勢！）</strong>，15:00 後再進場一路玩到閉園。下雨可輪替室內：Factory Adventure Ride、4D 電影院、室內積木遊戲區。</p>
+                    <p><strong>中午回飯店房間睡午覺</strong>，15:00 後再進場。下雨可輪替室內：Factory Adventure Ride、4D 電影院等。</p>
                 </div>
             </div>
 
@@ -184,18 +189,18 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>上午：</strong> 樂高樂園續玩最後巡禮 ➡️ 前往 The Big Shop 採買限定版樂高。</li>
-                        <li><strong>13:30</strong> 出發回首爾（車程預抓 2–2.5 小時以防塞車），先開往東大門飯店（JD Tower Hotel）放行李。</li>
-                        <li><strong>傍晚：</strong> 開車回江南，<strong>20:00 前至 LOTTE Rent-a-Car 江南據點同站還車</strong>。還車後搭計程車或地鐵回東大門。</li>
+                        <li><strong>上午：</strong> 樂高樂園續玩 ➡️ The Big Shop 採買。</li>
+                        <li><strong>13:30</strong> 出發回首爾，先前往東大門 <strong>JD Tower Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=JD+Tower+Hotel+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/JD+%ED%83%80%EC%9B%8C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span> 放行李。</li>
+                        <li><strong>傍晚：</strong> 開車回江南，<strong>20:00 前至 LOTTE Rent-a-Car 江南據點同站還車</strong>。</li>
                     </ul>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>晚餐：陳玉華一隻雞（就在東大門住處附近）或在江南還車周邊享用知名的明洞餃子。</p>
+                    <p>晚餐：<strong>陳玉華一隻雞</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Jin+Ok-hwa+Original+Chicken" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span> 或還車周邊的 <strong>明洞餃子</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Kyoja" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%AA%85%EB%8F%99%EA%B5%90%EC%9E%90" target="_blank" class="map-link">Naver Map</a>)</span>。</p>
                 </div>
                 <div class="section-block alert-block">
                     <h4><i class="fa-solid fa-lightbulb"></i> 💡 避塞車替代方案</h4>
-                    <p>若想避開交通尖峰，可以提早在 13:00 前出發；或者在春川吃完晚餐，等 19:00 後再開回首爾（讓孩子在車上睡）。若上午遇到大雨，則在飯店工作坊玩到退房直接回首爾，下午帶小孩去東大門飯店泳池玩。</p>
+                    <p>提早在 13:00 前出發；或在春川吃完晚餐 19:00 後再開回首爾。</p>
                 </div>
             </div>
 
@@ -204,18 +209,14 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>09:00–11:30</strong> 兒童大公園（趁早晨天氣還涼快時看動物、玩戶外遊戲場，免門票，看狀況隨時撤退）。</li>
-                        <li><strong>下午：</strong> 昌信洞文具玩具街（從小品天堂走路就能到，騎樓有遮蔭，採買玩具禮物首選）。</li>
-                        <li><strong>傍晚：</strong> 明洞 Olive Young 補貨 ➡️ 樂天超市首爾站店大採購（海苔、烏龜餅乾等伴手禮） ➡️ 晚上回飯店打包行李。</li>
+                        <li><strong>09:00–11:30</strong> <strong>兒童大公園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Children%27s+Grand+Park+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%8C%80%EA%B3%B5%EC%9B%90" target="_blank" class="map-link">Naver Map</a>)</span> 看動物、玩戶外遊戲場（免門票）。</li>
+                        <li><strong>下午：</strong> <strong>昌信洞文具玩具街</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Changsin-dong+Toy+Market" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%B0%BD%EC%8B%A0%EB%8F%99+%EB%AC%B8%EA%B5%AC%EC%99%84%EA%B5%AC%EA%B1%B0%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span>（採買玩具禮物首選）。</li>
+                        <li><strong>傍晚：</strong> <strong>明洞 Olive Young</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Olive+Young+Myeongdong" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81+%EB%AA%85%EB%8F%99" target="_blank" class="map-link">Naver Map</a>)</span> 補貨 ➡️ <strong>樂天超市首爾站店</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Seoul+Station" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A7%88%ED%8A%B8+%EC%A0%9C%ED%83%80%ED%94%8C%EB%A0%89%EC%8A%A4+%EC%84%9C%EC%9A%B8%EC%97%AD%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span> 大採購。</li>
                     </ul>
-                </div>
-                <div class="section-block food-block">
-                    <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>中午：陳玉華一隻雞（前一天沒吃到的話）或東大門在地的道地雪濃湯。</p>
                 </div>
                 <div class="section-block alert-block">
                     <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 暴熱/雨備策略</h4>
-                    <p>戶外公園行程作廢 ➡️ 上午改去飯店泳池，或直接逛飯店樓下的 Doota Mall / 現代 City Outlets。昌信洞文具街有騎樓可照逛。</p>
+                    <p>戶外公園作廢 ➡️ 上午改去逛飯店樓下的 <strong>Doota Mall</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Doota+Mall" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%91%90%ED%83%80%EB%AA%B0" target="_blank" class="map-link">Naver Map</a>)</span> / <strong>現代 City Outlets</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Hyundai+City+Outlets+Dongdaemun" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%ED%98%84%EB%8C%80%EC%8B%9C%ED%8B%B0%EC%95%84%EC%9A%B8%EB%A0%9B+%EB%8F%99%EB%8C%80%EB%AC%B8%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span>。昌信洞文具街有騎樓可照逛。</p>
                 </div>
             </div>
 
@@ -223,7 +224,7 @@
                 <div class="day-title">📆 Day 8（8/1 六）平安返程</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-plane-departure"></i> 今日行程</h4>
-                    <p><strong>08:00</strong> 準時出發 ➡️ 搭計程車前往金浦機場（車程約 50 分鐘） ➡️ 辦理手續退稅 ➡️ 搭乘 11:15 班機平安回台灣，結束精彩旅程！</p>
+                    <p><strong>08:00</strong> 準時出發 ➡️ 搭計程車前往金浦機場（車程約 50 分鐘） ➡️ 辦理登機退稅 ➡️ 搭乘 11點多 班機平安回台灣，結束精彩旅程！</p>
                 </div>
             </div>
 
