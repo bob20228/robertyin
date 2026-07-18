@@ -75,8 +75,8 @@
 
     <div class="todo-section">
         <h3><i class="fa-solid fa-list-check"></i> 🚨 貼心出發前進度提醒</h3>
-        <label class="todo-item done"><input type="checkbox" checked onchange="toggleTodo(this)"> 1. 填寫租車資訊</label>
-        <label class="todo-item done"><input type="checkbox" checked onchange="toggleTodo(this)"> 2. 將景點資訊填寫到 Naver Map</label>
+        <label class="todo-item"><input type="checkbox" onchange="toggleTodo(this)"> 1. 填寫租車資訊</label>
+        <label class="todo-item"><input type="checkbox" onchange="toggleTodo(this)"> 2. 將景點資訊填寫到 Naver Map</label>
         <label class="todo-item done"><input type="checkbox" checked onchange="toggleTodo(this)"> 3. 寄信給飯店確認是否有收到Agoda的訂單 (已確認完成!)</label>
     </div>
 
@@ -98,11 +98,15 @@
                 <div class="day-title">📆 Day 1（7/25 六）抵達首爾</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-plane-arrival"></i> 今日行程</h4>
-                    <p><strong>金浦機場</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=%EA%B9%80%ED%8F%AC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EA%B9%80%ED%8F%AC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 搭計程車（約 40–50 分鐘）直達江南飯店 <strong>Goyouin & Holmes</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Goyouin+%26+Holmes" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EA%B3%A0%EC%9C%A0%EC%9D%B8%26%ED%99%88%EC%A6%88" target="_blank" class="map-link">Naver Map</a>)</span> 辦理自助入住。</p>
+                    <p><strong>金浦機場</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=金浦機場" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EA%B9%80%ED%8F%AC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 搭計程車（約 40–50 分鐘）直達江南飯店 <strong>Goyouin & Holmes</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Goyouin+Holmes" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EA%B3%A0%EC%9C%A0%EC%9D%B8%26%ED%99%88%EC%A6%88" target="_blank" class="map-link">Naver Map</a>)</span> 辦理自助入住。</p>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>飯店周邊享用溫暖的雪濃湯或經典韓式烤肉。</p>
+                    <p>第一天抵達，推薦前往飯店周邊享用溫暖的雪濃湯：</p>
+                    <ul>
+                        <li><strong>선릉설렁탕 (宣陵雪濃湯)</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=선릉설렁탕" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/선릉설렁탕" target="_blank" class="map-link">Naver Map</a>)</span></li>
+                        <li><strong>설기옥 선릉본점 (雪基玉 宣陵總店)</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=설기옥+선릉본점" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/설기옥%20선릉본점" target="_blank" class="map-link">Naver Map</a>)</span></li>
+                    </ul>
                 </div>
             </div>
 
@@ -111,8 +115,8 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>10:00</strong> <strong>Zoolung Zoolung 永登浦店</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Zoolung+Zoolung+Times+Square" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A3%BC%EB%A0%81%EC%A3%BC%EB%A0%81+%ED%83%80%EC%9E%84%EC%8A%A4%ED%80%98%EC%96%B4%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span>：門票網路先買好，餵食水豚、大嘴鳥、小狐獴。</li>
-                        <li><strong>中午：</strong> <strong>Times Square 時代廣場</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Times+Square+Yeongdeungpo" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%98%81%EB%93%B1%ED%8F%AC+%ED%83%80%EC%9E%84%EC%8A%A4%ED%80%98%EC%96%B4" target="_blank" class="map-link">Naver Map</a>)</span> 美食街午餐。</li>
+                        <li><strong>10:00</strong> <strong>Zoolung Zoolung 永登浦店</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Zoolung+Zoolung+Yeongdeungpo" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A3%BC%EB%A0%81%EC%A3%BC%EB%A0%81+%ED%83%80%EC%9E%84%EC%8A%A4%ED%80%98%EC%96%B4%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span>：門票網路先買好，餵食水豚、大嘴鳥、小狐獴。</li>
+                        <li><strong>中午：</strong> <strong>Times Square 時代廣場</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Times+Square+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%98%81%EB%93%B1%ED%8F%AC+%ED%83%80%EC%9E%84%EC%8A%A4%ED%80%98%EC%96%B4" target="_blank" class="map-link">Naver Map</a>)</span> 美食街午餐。</li>
                         <li><strong>下午：</strong> 避開最熱時段，回房睡午覺充電。</li>
                         <li><strong>16:30</strong> <strong>汝矣島漢江公園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Yeouido+Hangang+Park" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%97%AC%EC%9D%98%EB%8F%84%ED%95%9C%EA%B0%95%EA%B3%B5%EC%9B%90" target="_blank" class="map-link">Naver Map</a>)</span>：野餐墊放鬆 ➡️ 傍晚搭乘海鷗船（自備蝦味先，先查好日落場次）。</li>
                     </ul>
@@ -123,7 +127,7 @@
                 </div>
                 <div class="section-block alert-block">
                     <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 室內備案</h4>
-                    <p><strong>COEX 水族館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=COEX+Aquarium" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%BD%94%EC%97%91%EC%8A%A4+%EC%95%84%EC%BF%A0%EC%95%84%EB%A6%AC%EC%9B%80" target="_blank" class="map-link">Naver Map</a>)</span> ＋ <strong>星空圖書館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Starfield+Library+COEX" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%B3%84%EB%A7%88%EB%8B%B9%EB%8F%84%EC%84%9C%EA%B4%80" target="_blank" class="map-link">Naver Map</a>)</span>（從江南過去僅 2 站）。</p>
+                    <p><strong>COEX 水族館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=COEX+Aquarium" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%BD%94%EC%97%91%EC%8A%A4+%EC%95%84%EC%BF%A0%EC%95%84%EB%A6%AC%EC%9B%80" target="_blank" class="map-link">Naver Map</a>)</span> ＋ <strong>星空圖書館</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Starfield+Library" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%B3%84%EB%A7%88%EB%8B%B9%EB%8F%84%EC%84%9C%EA%B4%80" target="_blank" class="map-link">Naver Map</a>)</span>（從江南過去僅 2 站）。</p>
                 </div>
             </div>
 
@@ -135,7 +139,7 @@
                 </div>
                 <div class="section-block" style="border-left-color: #6A1B9A;">
                     <h4><i class="fa-solid fa-car"></i> 📌 租車重要提醒</h4>
-                    <p><strong>20:00</strong> 預計至 <strong>LOTTE Rent-a-Car 江南據點</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+Rent-a-car+Gangnam" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4+%EA%B0%95%EB%82%A8%EC%A7%80%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span> 取車（含兒童座椅）。車子可先停在 Goyouin & Holmes 飯店。</p>
+                    <p><strong>20:00</strong> 預計至 <strong>LOTTE Rent-a-Car 江南據點</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+Rent-a-Car+Gangnam" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4+%EA%B0%95%EB%82%A8%EC%A7%80%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span> 取車（含兒童座椅）。車子可先停在 Goyouin & Holmes 飯店。</p>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
@@ -159,7 +163,7 @@
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>午餐園區解決；晚餐飯店享用。想外食可開車去 <strong>俊浩家炭火烤鴨</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=%EC%B6%98%EC%B2%9C+%EC%A4%80%ED%98%B8%EB%84%A4%EC%88%AF%EB%B6%88%EC%B2%AD%EB%91%A5%EC%98%A4%EB%A6%AC" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%B6%98%EC%B2%9C+%EC%A4%80%ED%98%B8%EB%84%A4%EC%88%AF%EB%B6%88%EC%B2%AD%EB%91%A5%EC%98%A4%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span>（口味不辣適合小孩）。</p>
+                    <p>午餐園區解決；晚餐飯店享用。想外食可開車去 <strong>俊浩家炭火烤鴨</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=春川+俊浩家" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%B6%98%EC%B2%9C+%EC%A4%80%ED%98%B8%EB%84%A4%EC%88%AF%EB%B6%88%EC%B2%AD%EB%91%A5%EC%98%A4%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span>（口味不辣適合小孩）。</p>
                 </div>
                 <div class="section-block alert-block">
                     <h4><i class="fa-solid fa-cloud-showers-heavy"></i> ☔ 大雨備案</h4>
@@ -171,7 +175,7 @@
                 <div class="day-title">📆 Day 5（7/29 三）樂高樂園全日遊</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
-                    <p>提早入園 <strong>樂高樂園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Korea+Resort" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%EC%BD%94%EB%A6%AC%EC%95%84+%EB%A6%AC%EC%A1%B0%ED%8A%B8" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 直奔駕照學校、MINILAND ➡️ 下午前往「海盜海岸」玩水區極限放電！</p>
+                    <p>提早入園 <strong>樂高樂園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Korea" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%EC%BD%94%EB%A6%AC%EC%95%84+%EB%A6%AC%EC%A1%B0%ED%8A%B8" target="_blank" class="map-link">Naver Map</a>)</span> ➡️ 直奔駕照學校、MINILAND ➡️ 下午前往「海盜海岸」玩水區極限放電！</p>
                     <p style="margin-top: 10px; color: #E63946;"><i class="fa-solid fa-bag-shopping"></i> <strong>小提醒：</strong> 下午玩水記得帶泳衣、替換衣物。</p>
                 </div>
                 <div class="section-block food-block">
@@ -190,13 +194,13 @@
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
                         <li><strong>上午：</strong> 樂高樂園續玩 ➡️ The Big Shop 採買。</li>
-                        <li><strong>13:30</strong> 出發回首爾，先前往東大門 <strong>JD Tower Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=JD+Tower+Hotel+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/JD+%ED%83%80%EC%9B%8C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span> 放行李。</li>
+                        <li><strong>13:30</strong> 出發回首爾，先前往東大門 <strong>JD Tower Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=JD+Tower+Hotel" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/JD+%ED%83%80%EC%9B%8C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span> 放行李。</li>
                         <li><strong>傍晚：</strong> 開車回江南，<strong>20:00 前至 LOTTE Rent-a-Car 江南據點同站還車</strong>。</li>
                     </ul>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
-                    <p>晚餐：<strong>陳玉華一隻雞</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Jin+Ok-hwa+Original+Chicken" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span> 或還車周邊的 <strong>明洞餃子</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Kyoja" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%AA%85%EB%8F%99%EA%B5%90%EC%9E%90" target="_blank" class="map-link">Naver Map</a>)</span>。</p>
+                    <p>晚餐：<strong>陳玉華一隻雞</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Jin+Okhwa+Original+Chicken+Restaurant" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span> 或還車周邊的 <strong>明洞餃子</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Kyoja" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%AA%85%EB%8F%99%EA%B5%90%EC%9E%90" target="_blank" class="map-link">Naver Map</a>)</span>。</p>
                 </div>
                 <div class="section-block alert-block">
                     <h4><i class="fa-solid fa-lightbulb"></i> 💡 避塞車替代方案</h4>
@@ -209,8 +213,8 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>09:00–11:30</strong> <strong>兒童大公園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Children%27s+Grand+Park+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%8C%80%EA%B3%B5%EC%9B%90" target="_blank" class="map-link">Naver Map</a>)</span> 看動物、玩戶外遊戲場（免門票）。</li>
-                        <li><strong>下午：</strong> <strong>昌信洞文具玩具街</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Changsin-dong+Toy+Market" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%B0%BD%EC%8B%A0%EB%8F%99+%EB%AC%B8%EA%B5%AC%EC%99%84%EA%B5%AC%EA%B1%B0%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span>（採買玩具禮物首選）。</li>
+                        <li><strong>09:00–11:30</strong> <strong>兒童大公園</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Children's+Grand+Park+Seoul" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%8C%80%EA%B3%B5%EC%9B%90" target="_blank" class="map-link">Naver Map</a>)</span> 看動物、玩戶外遊戲場（免門票）。</li>
+                        <li><strong>下午：</strong> <strong>昌信洞文具玩具街</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Changsin-dong+Stationery+and+Toy+Street" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%B0%BD%EC%8B%A0%EB%8F%99+%EB%AC%B8%EA%B5%AC%EC%99%84%EA%B5%AC%EA%B1%B0%EB%A6%AC" target="_blank" class="map-link">Naver Map</a>)</span>（採買玩具禮物首選）。</li>
                         <li><strong>傍晚：</strong> <strong>明洞 Olive Young</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Olive+Young+Myeongdong" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81+%EB%AA%85%EB%8F%99" target="_blank" class="map-link">Naver Map</a>)</span> 補貨 ➡️ <strong>樂天超市首爾站店</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Seoul+Station" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A7%88%ED%8A%B8+%EC%A0%9C%ED%83%80%ED%94%8C%EB%A0%89%EC%8A%A4+%EC%84%9C%EC%9A%B8%EC%97%AD%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span> 大採購。</li>
                     </ul>
                 </div>
