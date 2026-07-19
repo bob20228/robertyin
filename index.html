@@ -16,17 +16,12 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         body { background: #EDF2F4; color: var(--dark); padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative; }
         header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #E9ECEF; padding-bottom: 20px; }
         header h1 { color: var(--primary); margin-bottom: 10px; font-size: 28px; }
         header p { color: var(--gray); font-size: 16px; }
 
-        /* Todo Section */
-        .todo-section { background: #FFF3CD; border-left: 5px solid var(--secondary); padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-        .todo-section h3 { margin-bottom: 12px; color: #856404; display: flex; align-items: center; gap: 8px; }
-        .todo-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 15px; cursor: pointer; }
-        .todo-item input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
-        .todo-item.done { text-decoration: line-through; color: var(--gray); }
+
 
         /* Layout */
         .trip-layout { display: flex; gap: 25px; }
@@ -61,6 +56,554 @@
         .alert-block { border-left-color: #E63946; background: #FFEBEB; }
         .alert-block h4 { color: #E63946; }
 
+        /* Voucher Card Styling */
+        .voucher-toggle-btn {
+            background: #FFF8E7;
+            color: #D97706;
+            border: 1px solid #FDE68A;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .voucher-toggle-btn:hover {
+            background: #FDE68A;
+            color: #B45309;
+        }
+        .voucher-container {
+            display: none;
+            background: #FFFFFF;
+            border: 2px dashed #CBD5E1;
+            border-radius: 12px;
+            padding: 18px;
+            margin-top: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+        .voucher-container.active {
+            display: block;
+        }
+        .voucher-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #E0F2FE;
+            color: #0369a1;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .voucher-header {
+            border-bottom: 1px dashed #E2E8F0;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+        .voucher-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E293B;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .voucher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .voucher-item {
+            font-size: 13px;
+        }
+        .voucher-label {
+            font-size: 11px;
+            color: #64748B;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .voucher-value {
+            color: #334155;
+            font-weight: 600;
+        }
+        .voucher-highlight {
+            color: #D97706;
+        }
+        .voucher-footer {
+            background: #F8FAFC;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 12px;
+            color: #475569;
+            border-left: 3px solid #F59E0B;
+            line-height: 1.5;
+        }
+
+        /* Flight Voucher Styling */
+        .flight-toggle-btn {
+            background: #EEF2FF;
+            color: #4F46E5;
+            border: 1px solid #C7D2FE;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .flight-toggle-btn:hover {
+            background: #C7D2FE;
+            color: #3730A3;
+        }
+        .flight-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #EEF2FF;
+            color: #4F46E5;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Lego Voucher Styling */
+        .lego-toggle-btn {
+            background: #FEF2F2;
+            color: #EF4444;
+            border: 1px solid #FCA5A5;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .lego-toggle-btn:hover {
+            background: #FEE2E2;
+            color: #B91C1C;
+        }
+        .lego-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #FEF2F2;
+            color: #EF4444;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* JD Voucher Styling */
+        .jd-toggle-btn {
+            background: #ECFDF5;
+            color: #059669;
+            border: 1px solid #A7F3D0;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .jd-toggle-btn:hover {
+            background: #D1FAE5;
+            color: #047857;
+        }
+        .jd-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ECFDF5;
+            color: #059669;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Lotte Rental Styling */
+        .lotte-toggle-btn {
+            background: #FFF5F5;
+            color: #E60012;
+            border: 1px solid #FEB2B2;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .lotte-toggle-btn:hover {
+            background: #FEE2E2;
+            color: #C5000F;
+        }
+        .lotte-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #FFF5F5;
+            color: #E60012;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Weather Section Styling */
+        .weather-section {
+            background: linear-gradient(135deg, #e0f2fe 0%, #e0f2fe 40%, #bae6fd 100%);
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .weather-section h3 {
+            margin-bottom: 12px;
+            color: #0369a1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+        }
+        .weather-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .weather-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #bae6fd;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+        .weather-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(3,105,161,0.08);
+            border-color: #7dd3fc;
+        }
+        .weather-city {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0c4a6e;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .weather-city span {
+            font-size: 12px;
+            background: #bae6fd;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        .weather-stats {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .weather-temp {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0284c7;
+            display: flex;
+            align-items: baseline;
+            gap: 2px;
+        }
+        .weather-temp small {
+            font-size: 14px;
+            font-weight: 500;
+            color: #0369a1;
+        }
+        .weather-desc {
+            font-size: 14px;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .weather-tips {
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 14px;
+            color: #334155;
+            border-top: 1px solid #e0f2fe;
+        }
+        .weather-tips p {
+            font-weight: 600;
+            color: #0369a1;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .weather-tips ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 8px;
+        }
+        .weather-tips li {
+            position: relative;
+            padding-left: 15px;
+            line-height: 1.4;
+        }
+        .weather-tips li::before {
+            content: "•";
+            color: #0284c7;
+            font-weight: bold;
+            position: absolute;
+            left: 2px;
+        }
+
+        /* Map Preview Section Styling */
+        .map-toggle-btn {
+            background: #E1F0FF;
+            color: var(--primary);
+            border: 1px solid #BBDDF9;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+        .map-toggle-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(74,144,226,0.2);
+        }
+        .map-toggle-btn.expanded {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(74,144,226,0.2);
+        }
+        .map-preview-container {
+            display: none;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .map-preview-container.active {
+            display: block;
+        }
+        .map-spot-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .map-chip {
+            background: #F1F5F9;
+            color: #475569;
+            border: 1px solid #E2E8F0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .map-chip:hover {
+            background: #E2E8F0;
+            color: #1E293B;
+        }
+        .map-chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 2px 6px rgba(74,144,226,0.25);
+        }
+        .map-iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #F1F5F9;
+            border: 1px solid #E2E8F0;
+        }
+        .map-spinner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--gray);
+            font-size: 15px;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .map-link-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .map-nav-btn {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            text-align: center;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .map-nav-btn.google {
+            background: #E1F0FF;
+            color: #0078D7;
+            border: 1px solid #BBDDF9;
+        }
+        .map-nav-btn.google:hover {
+            background: #0078D7;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,120,215,0.2);
+        }
+        .map-nav-btn.naver {
+            background: #EBF7EE;
+            color: #03C75A;
+            border: 1px solid #C4EDD4;
+        }
+        .map-nav-btn.naver:hover {
+            background: #03C75A;
+            color: white;
+            box-shadow: 0 4px 10px rgba(3,199,90,0.2);
+        }
+
+        /* Checklist Styling */
+        .checklist-block {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+        .checklist-block h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .checklist-category {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--primary);
+        }
+        .checklist-category h5 {
+            font-size: 14px;
+            color: var(--dark);
+            margin-bottom: 10px;
+            border-bottom: 1px solid #F1F5F9;
+            padding-bottom: 5px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 8px;
+            cursor: pointer;
+            user-select: none;
+            line-height: 1.4;
+        }
+        .checklist-item:last-child {
+            margin-bottom: 0;
+        }
+        .checklist-item input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+            accent-color: var(--primary);
+            flex-shrink: 0;
+        }
+        .checklist-item.done {
+            text-decoration: line-through;
+            color: var(--gray);
+            opacity: 0.7;
+        }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Responsive */
@@ -69,22 +612,302 @@
             .tabs { flex-direction: row; overflow-x: auto; padding-bottom: 10px; min-width: 100%; }
             .tab-btn { white-space: nowrap; padding: 10px 15px; font-size: 14px; gap: 10px; }
         }
+
+        /* Dark Mode variables & overrides */
+        body.dark-mode {
+            background: #12131a;
+            color: #f1f5f9;
+        }
+        body.dark-mode .container {
+            background: #1a1c26;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        body.dark-mode header {
+            border-bottom-color: #2d3142;
+        }
+        body.dark-mode header h1 {
+            color: #60a5fa;
+        }
+        body.dark-mode header p {
+            color: #94a3b8;
+        }
+        body.dark-mode .tab-btn {
+            background: #232635;
+            color: #cbd5e1;
+        }
+        body.dark-mode .tab-btn:hover {
+            background: #2e3247;
+        }
+        body.dark-mode .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        body.dark-mode .content-area {
+            background: #232635;
+        }
+        body.dark-mode .day-title {
+            color: #60a5fa;
+            border-bottom-color: #334155;
+        }
+        body.dark-mode .section-block {
+            background: #1e2130;
+            border-left-color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        body.dark-mode .section-block h4 {
+            color: #f1f5f9;
+        }
+        body.dark-mode .section-block p, 
+        body.dark-mode .section-block li {
+            color: #cbd5e1;
+        }
+        body.dark-mode .poi-info {
+            background: #1a2436;
+            border-color: #2d3d54;
+            color: #94a3b8;
+        }
+        body.dark-mode .poi-info b {
+            color: #60a5fa;
+        }
+        body.dark-mode .map-link {
+            background: #1e3a5f;
+            border-color: #2563eb;
+            color: #60a5fa;
+        }
+        body.dark-mode .map-link:hover {
+            background: #2563eb;
+            color: white;
+        }
+        body.dark-mode .map-links-wrapper {
+            color: #64748b;
+        }
+        body.dark-mode .food-block {
+            border-left-color: var(--success);
+        }
+        body.dark-mode .alert-block {
+            border-left-color: #ef4444;
+            background: #2e1e22;
+        }
+        body.dark-mode .alert-block h4 {
+            color: #fca5a5;
+        }
+        body.dark-mode .voucher-container {
+            background: #1e2130;
+            border-color: #475569;
+        }
+        body.dark-mode .voucher-title {
+            color: #f1f5f9;
+        }
+        body.dark-mode .voucher-label {
+            color: #94a3b8;
+        }
+        body.dark-mode .voucher-value {
+            color: #cbd5e1;
+        }
+        body.dark-mode .voucher-footer {
+            background: #232635;
+            border-left-color: #d97706;
+            color: #cbd5e1;
+        }
+        body.dark-mode .flight-badge {
+            background: #2d325a;
+            color: #93c5fd;
+        }
+        body.dark-mode .lego-badge {
+            background: #471d23;
+            color: #fca5a5;
+        }
+        body.dark-mode .jd-badge {
+            background: #153e30;
+            color: #6ee7b7;
+        }
+        body.dark-mode .lotte-badge {
+            background: #4c1a20;
+            color: #fca5a5;
+        }
+        
+        /* Weather in dark mode */
+        body.dark-mode .weather-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-left-color: #2563eb;
+        }
+        body.dark-mode .weather-section h3 {
+            color: #38bdf8;
+        }
+        body.dark-mode .weather-grid {
+            border-color: #334155;
+        }
+        body.dark-mode .weather-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-color: #334155;
+        }
+        body.dark-mode .weather-city {
+            color: #f1f5f9;
+        }
+        body.dark-mode .weather-city span {
+            background: #1e293b;
+            color: #38bdf8;
+        }
+        body.dark-mode .weather-temp {
+            color: #38bdf8;
+        }
+        body.dark-mode .weather-temp small {
+            color: #7dd3fc;
+        }
+        body.dark-mode .weather-desc {
+            color: #e2e8f0;
+        }
+        body.dark-mode .weather-tips {
+            background: rgba(15, 23, 42, 0.4);
+            border-top-color: #334155;
+            color: #cbd5e1;
+        }
+        body.dark-mode .weather-tips p {
+            color: #38bdf8;
+        }
+        body.dark-mode .weather-tips li::before {
+            color: #38bdf8;
+        }
+
+        /* Map previews in dark mode */
+        body.dark-mode .map-preview-container {
+            background: #1e2130;
+            border-color: #334155;
+        }
+        body.dark-mode .map-chip {
+            background: #334155;
+            color: #cbd5e1;
+            border-color: #475569;
+        }
+        body.dark-mode .map-chip:hover {
+            background: #475569;
+            color: #f1f5f9;
+        }
+        body.dark-mode .map-chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        body.dark-mode .map-iframe-wrapper {
+            background: #334155;
+            border-color: #475569;
+        }
+        body.dark-mode .map-spinner {
+            background: #334155;
+            color: #94a3b8;
+        }
+        body.dark-mode .map-nav-btn.google {
+            background: #1e293b;
+            color: #60a5fa;
+            border-color: #2563eb;
+        }
+        body.dark-mode .map-nav-btn.google:hover {
+            background: #2563eb;
+            color: white;
+        }
+        body.dark-mode .map-nav-btn.naver {
+            background: #142a1e;
+            color: #4ade80;
+            border-color: #166534;
+        }
+        body.dark-mode .map-nav-btn.naver:hover {
+            background: #166534;
+            color: white;
+        }
+
+        /* Dark mode toggle button */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background: white;
+            border: 1px solid #E2E8F0;
+            color: var(--dark);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 100;
+        }
+        .dark-mode-toggle:hover {
+            background: #F1F5F9;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        body.dark-mode .dark-mode-toggle {
+            background: #232635;
+            color: #cbd5e1;
+            border-color: #334155;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        body.dark-mode .dark-mode-toggle:hover {
+            background: #2e3247;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        /* Dark Mode overrides for checklist */
+        body.dark-mode .checklist-block {
+            background: #151824;
+            border-color: #2d3142;
+        }
+        body.dark-mode .checklist-block h3 {
+            color: #60a5fa;
+        }
+        body.dark-mode .checklist-category {
+            background: #1e2130;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            border-top-color: #2563eb;
+        }
+        body.dark-mode .checklist-category h5 {
+            color: #f1f5f9;
+            border-bottom-color: #2d3142;
+        }
+        body.dark-mode .checklist-item {
+            color: #cbd5e1;
+        }
+        body.dark-mode .checklist-item.done {
+            color: #64748b;
+        }
+        body.dark-mode .checklist-item input[type="checkbox"] {
+            accent-color: #2563eb;
+        }
+
+        @media (max-width: 768px) {
+            .dark-mode-toggle {
+                position: static;
+                margin: 0 auto 15px auto;
+                width: fit-content;
+            }
+        }
     </style>
 </head>
 <body>
+<script>
+    (function() {
+        let isDark = localStorage.getItem('theme') === 'dark';
+        if (localStorage.getItem('theme') === null) {
+            isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        if (isDark) {
+            document.body.classList.add('dark-mode');
+        }
+    })();
+</script>
 
 <div class="container">
+    <button class="dark-mode-toggle" id="theme-toggle" onclick="toggleDarkMode()">
+        <i class="fa-solid fa-moon"></i> <span>深色模式</span>
+    </button>
     <header>
         <h1>🗺️ 2027 首爾・春川樂高 親子 8 日遊</h1>
         <p>👨‍👩‍👧 一家三口（含 5 歲放電小公主）的盛夏慢遊計畫</p>
     </header>
-
-    <div class="todo-section">
-        <h3><i class="fa-solid fa-list-check"></i> 🚨 貼心出發前進度提醒</h3>
-        <label class="todo-item"><input type="checkbox" onchange="toggleTodo(this)"> 1. 填寫租車資訊</label>
-        <label class="todo-item"><input type="checkbox" onchange="toggleTodo(this)"> 2. 將景點資訊填寫到 Naver Map</label>
-        <label class="todo-item done"><input type="checkbox" checked onchange="toggleTodo(this)"> 3. 寄信給飯店確認是否有收到Agoda的訂單 (已確認完成!)</label>
-    </div>
 
     <div class="trip-layout">
         <div class="tabs">
@@ -104,11 +927,110 @@
                 <div class="day-title">📆 Day 1（7/25 六）抵達首爾</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-plane-arrival"></i> 今日行程</h4>
-                    <p><strong>金浦機場</strong> ➡️ 搭計程車（約 40–50 分鐘）直達江南飯店 <strong>Goyouin & Holmes</strong> 辦理自助入住。</p>
+                    <p><strong>14:00 台北松山 (TSA) ➡️ 17:25 首爾金浦 (GMP)</strong> (易斯達航空 ZE 888)<br>抵達金浦機場後，搭乘計程車（約 40–50 分鐘）直達江南飯店 <strong>Goyouin & Holmes</strong> 辦理自助入住。</p>
                     <ul class="poi-info">
                         <li><b>📍 地址：</b> 서울 강남구 선릉로92길 37-6</li>
                         <li><b>⏰ 入住時間：</b> 15:00 後 Check-in</li>
                     </ul>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                        <button class="flight-toggle-btn" id="flight-day1-btn" onclick="toggleFlightDay1()">
+                            <i class="fa-solid fa-plane"></i> ✈️ 查看去程機票明細 (ZE 888)
+                        </button>
+                        <button class="voucher-toggle-btn" id="voucher-btn" onclick="toggleVoucher()" style="margin-top: 0;">
+                            <i class="fa-solid fa-receipt"></i> 🎫 查看 Agoda 飯店預訂明細
+                        </button>
+                    </div>
+
+                    <div class="voucher-container" id="flight-day1-details" style="border-color: #C7D2FE;">
+                        <div class="flight-badge">Confirmed</div>
+                        <div class="voucher-header">
+                            <div class="voucher-title"><i class="fa-solid fa-ticket"></i> 易斯達航空去程機票 (TSA ➡️ GMP)</div>
+                        </div>
+                        <div class="voucher-grid">
+                            <div class="voucher-item">
+                                <div class="voucher-label">預約編號 (Booking Ref / PNR)</div>
+                                <div class="voucher-value" style="font-family: monospace; color: #4F46E5;">DYI2SA</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">航空公司 (Airline)</div>
+                                <div class="voucher-value">Eastar Jet (易斯達航空)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">航班號碼 (Flight No.)</div>
+                                <div class="voucher-value">ZE 888</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">出發機場 (Departure)</div>
+                                <div class="voucher-value">台北松山 (TSA) 14:00</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">抵達機場 (Arrival)</div>
+                                <div class="voucher-value">首爾金浦 (GMP) 17:25</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">搭乘旅客 (Passengers)</div>
+                                <div class="voucher-value">3 名 (2 大 1 小)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">行李額度 (Baggage)</div>
+                                <div class="voucher-value">每人免費 15kg 託運</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">票種 (Class)</div>
+                                <div class="voucher-value">折扣票</div>
+                            </div>
+                        </div>
+                        <div class="voucher-footer" style="border-left-color: #4F46E5;">
+                            <strong>💳 付款總額：</strong> TWD 29,731 (已於 2026-07-03 付清)<br>
+                            <strong>💡 提醒：</strong> 請於起飛前 2.5 小時（約 11:30 前）抵達松山機場辦理登機。
+                        </div>
+                    </div>
+                    
+                    <div class="voucher-container" id="voucher-details">
+                        <div class="voucher-badge">Confirmed</div>
+                        <div class="voucher-header">
+                            <div class="voucher-title"><i class="fa-solid fa-hotel"></i> 飯店入住憑證 (Voucher)</div>
+                        </div>
+                        <div class="voucher-grid">
+                            <div class="voucher-item">
+                                <div class="voucher-label">預訂編號 (Booking Ref)</div>
+                                <div class="voucher-value" style="font-family: monospace;">2607080062959641</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">客戶姓名 (Guest)</div>
+                                <div class="voucher-value">Chen Kai Yin (陳凱音)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">入住日期 (Check-in)</div>
+                                <div class="voucher-value">2026/07/25 (六)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">退房日期 (Check-out)</div>
+                                <div class="voucher-value">2026/07/28 (二)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">房型 (Room Type)</div>
+                                <div class="voucher-value">Jumbo Suite (含車位)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">入住人數 (Capacity)</div>
+                                <div class="voucher-value">3 大 0 小 (1 間房)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">預定抵達時間</div>
+                                <div class="voucher-value">18:00 - 19:00</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">入住參考代碼</div>
+                                <div class="voucher-value" style="font-family: monospace;">1745245885</div>
+                            </div>
+                        </div>
+                        <div class="voucher-footer">
+                            <strong>💳 現場付款明細：</strong> 已選擇延後付款。預計於付款日扣款 <strong>KRW 1,080,256</strong> (已含 5% 調整，預計刷卡 Visa ****-****-****-1204)。<br>
+                            <strong>⚠️ 取消政策：</strong> 可於 2026 年 7 月 21 日前免費取消，逾期或未入住將扣除全額房費。
+                        </div>
+                    </div>
                 </div>
                 <div class="section-block food-block">
                     <h4><i class="fa-solid fa-utensils"></i> 🍽️ 美食推薦</h4>
@@ -122,13 +1044,51 @@
                                 <li><b>⭐ 評分：</b> Google 3.9 (Naver 累積大量好評)</li>
                             </ul>
                         </li>
-                        <li><strong>설기옥 선릉본점 (雪基玉 宣陵總店)</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=설기옥+선릉본점" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/설기옥%20선릉본점" target="_blank" class="map-link">Naver Map</a>)</span>
+                        <li><strong>설기옥 선릉本점 (雪基玉 宣陵總店)</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=설기옥+선릉본점" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/설기옥%20선릉본점" target="_blank" class="map-link">Naver Map</a>)</span>
                             <ul class="poi-info">
                                 <li><b>📍 地址：</b> 서울 강남구 역삼동 (宣陵站周邊)</li>
                                 <li><b>⏰ 營業時間：</b> 依現場公告為準</li>
                             </ul>
                         </li>
                     </ul>
+                </div>
+                
+                <div class="checklist-block" id="luggage-checklist-section">
+                    <h3><i class="fa-solid fa-suitcase"></i> 🧳 建議行李檢查表 (一家三口首爾盛夏慢遊)</h3>
+                    <p style="font-size: 13px; color: var(--gray); margin-bottom: 15px; margin-top: 5px;">點擊項目可進行勾選紀錄，系統會自動在瀏覽器中儲存您的整理進度！</p>
+                    <div class="checklist-grid">
+                        <div class="checklist-category">
+                            <h5><i class="fa-solid fa-id-card"></i> 重要證件與金流</h5>
+                            <label class="checklist-item"><input type="checkbox" id="pack-passport" onchange="toggleChecklistItem(this)"> 護照正本 (效期 6 個月以上)</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-ticket" onchange="toggleChecklistItem(this)"> 電子機票憑證影本</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-voucher" onchange="toggleChecklistItem(this)"> 飯店 / 門票預約憑證</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-license" onchange="toggleChecklistItem(this)"> 國際駕照 + 台灣駕照正本</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-currency" onchange="toggleChecklistItem(this)"> 韓元現金 & 雙幣信用卡</label>
+                        </div>
+                        <div class="checklist-category">
+                            <h5><i class="fa-solid fa-baby"></i> 小公主放電專屬 (5歲)</h5>
+                            <label class="checklist-item"><input type="checkbox" id="pack-kids-clothes" onchange="toggleChecklistItem(this)"> 換洗衣物 (每日 + 2套備用)</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-kids-shoes" onchange="toggleChecklistItem(this)"> 好走防滑涼鞋 & 運動鞋</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-kids-bottle" onchange="toggleChecklistItem(this)"> 兒童專用保溫瓶 / 餐具</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-kids-medicine" onchange="toggleChecklistItem(this)"> 常備藥品 (退燒、蚊蟲藥)</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-kids-toy" onchange="toggleChecklistItem(this)"> 小公主防無聊安撫貼紙書/玩具</label>
+                        </div>
+                        <div class="checklist-category">
+                            <h5><i class="fa-solid fa-sun"></i> 盛夏防曬與防雨</h5>
+                            <label class="checklist-item"><input type="checkbox" id="pack-sunscreen" onchange="toggleChecklistItem(this)"> 全家防曬乳 (盛夏必備)</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-hat-sunglasses" onchange="toggleChecklistItem(this)"> 遮陽帽 & 兒童抗UV墨鏡</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-umbrella" onchange="toggleChecklistItem(this)"> 輕便防風摺疊傘 / 雨衣</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-wet-wipes" onchange="toggleChecklistItem(this)"> 隨身濕紙巾 & 乾洗手</label>
+                        </div>
+                        <div class="checklist-category">
+                            <h5><i class="fa-solid fa-water"></i> 玩水與電子裝備</h5>
+                            <label class="checklist-item"><input type="checkbox" id="pack-swimsuit" onchange="toggleChecklistItem(this)"> 泳衣/泳帽 (樂高樂園/飯店)</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-waterproof-bag" onchange="toggleChecklistItem(this)"> 乾濕分離防水袋 / 泳鏡</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-adapter" onchange="toggleChecklistItem(this)"> 韓國 220V 圓孔轉接頭 & 延長線</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-powerbank" onchange="toggleChecklistItem(this)"> 行動電源 (須隨身手提)</label>
+                            <label class="checklist-item"><input type="checkbox" id="pack-charging-cables" onchange="toggleChecklistItem(this)"> 手機/相機充電器 & 充電線</label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -179,13 +1139,70 @@
                         <li><b>⭐ 評分：</b> Google 4.4</li>
                     </ul>
                 </div>
-                <div class="section-block" style="border-left-color: #6A1B9A;">
+                <div class="section-block" style="border-left-color: #E60012;">
                     <h4><i class="fa-solid fa-car"></i> 📌 租車重要提醒</h4>
-                    <p><strong>20:00</strong> 預計至 <strong>LOTTE Rent-a-Car 江南據點</strong> 取車。</p>
+                    <p><strong>20:00</strong> 預計至 <strong>LOTTE Rent-a-Car 江南營業所 (Gangnam Branch)</strong> 辦理取車。<span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LOTTE+Rent-a-Car+Gangnam" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4+%EA%B0%95%EB%82%A8%EC%A7%80%EC%A0%90" target="_blank" class="map-link">Naver Map</a>)</span></p>
                     <ul class="poi-info">
-                        <li><b>📍 地址：</b> 서울 강남구 테헤란로 114</li>
-                        <li><b>⏰ 營業時間：</b> 08:30–20:00 (請留意打烊時間)</li>
+                        <li><b>📍 地址：</b> 서울 강남구 테헤란로81길 53 (53, Teheran-ro 81-gil, Gangnam-gu, Seoul)</li>
+                        <li><b>⏰ 營業時間：</b> 08:30–20:00 (請務必於 20:00 打烊前準時抵達！)</li>
                     </ul>
+
+                    <button class="lotte-toggle-btn" id="lotte-day3-btn" onclick="toggleLotteDay3()">
+                        <i class="fa-solid fa-car"></i> 🚗 查看 Lotte 租車預訂明細 (SONATA)
+                    </button>
+
+                    <div class="voucher-container" id="lotte-day3-details" style="border-color: #FEB2B2;">
+                        <div class="lotte-badge">Confirmed</div>
+                        <div class="voucher-header">
+                            <div class="voucher-title" style="color: #E60012;"><i class="fa-solid fa-car-side"></i> 樂天租車預訂憑證 (LOTTE Rent-a-Car)</div>
+                        </div>
+                        <div class="voucher-grid">
+                            <div class="voucher-item">
+                                <div class="voucher-label">預訂號碼 (Reservation No.)</div>
+                                <div class="voucher-value" style="font-family: monospace; color: #E60012;">26-22-469321</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">預訂日期 (Reservation Date)</div>
+                                <div class="voucher-value">2026-07-11</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">預約車型 (Vehicle)</div>
+                                <div class="voucher-value">SONATA (G) (Gasoline 汽油車)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">取車時間 (Pick-up Time)</div>
+                                <div class="voucher-value" style="font-weight: bold; color: #B91C1C;">2026-07-27 (一) 20:00</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">還車時間 (Return Time)</div>
+                                <div class="voucher-value">2026-07-30 (四) 20:00 (共 3 天)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">取車/還車地點 (Branch)</div>
+                                <div class="voucher-value">江南營業所 (Gangnam Branch)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">預訂姓名 (Name)</div>
+                                <div class="voucher-value">CHEN KAI YIN (陳凱音)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">聯絡電話 (Phone)</div>
+                                <div class="voucher-value">093-363-3***</div>
+                            </div>
+                        </div>
+                        <div class="voucher-footer" style="border-left-color: #E60012; background: #FFF5F5;">
+                            <strong>🛡️ 保險與加購服務 (Insurance & Options)：</strong><br>
+                            • <strong>CDW-Zero Excess：</strong> 免責零自付額全險 (已付 KRW 81,000)<br>
+                            • <strong>Car Seat：</strong> 包含 1 個兒童安全座椅 (For Junior 1ea，已付 KRW 21,000)<br><br>
+                            <strong>💳 費用與付款明細 (Payment Details)：</strong><br>
+                            • 租車/加購原價：KRW 728,000｜折扣優惠：-KRW 282,200<br>
+                            • <strong>總費用 (Total Cost)：KRW 445,800</strong><br>
+                            • <strong>付款狀態：</strong>已於 2026-07-11 21:08:00 使用海外 VISA 信用卡付清 (無未付餘額 Remaining Cost: KRW 0)<br><br>
+                            <strong>⚠️ 取車重要提醒：</strong><br>
+                            1. <strong>攜帶證件：</strong> 取車時必須出示：<strong>① 台灣駕照正本</strong>、<strong>② 國際駕照正本</strong> (有效期限內)、<strong>③ 護照正本</strong>、<strong>④ 預訂所使用的信用卡</strong>。<br>
+                            2. <strong>時間限制：</strong> 營業所於 20:00 打烊，請務必提早抵達辦理取車。
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -202,7 +1219,68 @@
                                 <li><b>⭐ 評分：</b> Google 4.4</li>
                             </ul>
                         </li>
-                        <li><strong>15:30</strong> 抵達 <strong>春川樂高飯店 LEGOLAND Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Hotel+Korea" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span></li>
+                        <li><strong>15:30</strong> 抵達 <strong>春川樂高飯店 LEGOLAND Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=LEGOLAND+Hotel+Korea" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/%EB%A0%88%EA%B3%A0%EB%9E%9C%EB%93%9C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span>
+                            <div style="margin-top: 5px;">
+                                <button class="lego-toggle-btn" id="lego-btn" onclick="toggleLegoVoucher()">
+                                    <i class="fa-solid fa-hotel"></i> 🎫 查看樂高飯店預訂明細 (LEGOLAND Hotel)
+                                </button>
+                            </div>
+                            
+                            <div class="voucher-container" id="lego-details" style="border-color: #FCA5A5;">
+                                <div class="lego-badge">Confirmed</div>
+                                <div class="voucher-header">
+                                    <div class="voucher-title" style="color: #DC2626;"><i class="fa-solid fa-cubes"></i> 樂高樂園飯店入住憑證 (LEGOLAND Hotel)</div>
+                                </div>
+                                <div class="voucher-grid">
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">預訂編號 (Reference No)</div>
+                                        <div class="voucher-value" style="font-family: monospace; color: #DC2626;">BBA26070820903404</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">客戶姓名 (Name)</div>
+                                        <div class="voucher-value">CHEN KAI YIN (陳凱音)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">入住日期 (Check-in)</div>
+                                        <div class="voucher-value">2026/07/28 (二) 16:00 後</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">退房日期 (Check-out)</div>
+                                        <div class="voucher-value">2026/07/30 (四) 11:00 前 (2 晚)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">房型 (Room Type)</div>
+                                        <div class="voucher-value">Pirate Premium with Park View<br><small style="color: #64748B; font-weight: normal;">(海盜主題高級房 - 樂園景觀)</small></div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">專案內容 (Package)</div>
+                                        <div class="voucher-value">Summer Dream Package</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">入住人數 (Guests)</div>
+                                        <div class="voucher-value">2 位成人 / 1 位兒童 (5 歲放電公主)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">付款參考號 (Payment Ref)</div>
+                                        <div class="voucher-value" style="font-family: monospace;">4162de865db5c1769db8</div>
+                                    </div>
+                                </div>
+                                <div class="voucher-footer" style="border-left-color: #EF4444; background: #FFFBEB;">
+                                    <strong>🎁 包含額外權益 (Extras)：</strong><br>
+                                    • <strong>1 Day Park Ticket：</strong> 包含 1 日樂園門票 (價值 KRW 109,091)<br>
+                                    • <strong>Breakfast Included：</strong> 包含每日美味早餐 (KRW 0)<br><br>
+                                    <strong>💳 費用與付款明細：</strong><br>
+                                    • 房費：KRW 1,240,000｜額外門票：KRW 109,091｜稅金：KRW 134,909.1<br>
+                                    • <strong>總計金額：KRW 1,484,000</strong> (已付清，無未付餘額 Outstanding Balance: KRW 0)<br><br>
+                                    <strong>🚗 交通與停車指南：</strong><br>
+                                    • <strong>自駕前往：</strong> 房客享免費停車 (Free Parking)<br>
+                                    • <strong>大眾運輸：</strong> 春川站 (Chuncheon Station) 與樂高樂園度假區之間設有免費接駁車 (Shuttle Bus)<br><br>
+                                    <strong>💡 貼心提醒：</strong><br>
+                                    • 飯店內全面實施<strong>無現金交易 (Cashless system)</strong>，請攜帶信用卡付款與作押金。入住時需提供信用卡作 KRW 100,000 / 每晚的押金 (退房時退還)。<br>
+                                    • <strong>取消政策：</strong> 於入住 3 天前 16:00 前（即 7/25 16:00 前）可免費取消，逾期或 72 小時內取消將收取 100% 房費。
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -226,12 +1304,125 @@
                 <div class="section-block">
                     <h4><i class="fa-solid fa-compass"></i> 今日行程</h4>
                     <ul>
-                        <li><strong>13:30</strong> 出發回首爾，前往東大門 <strong>JD Tower Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=JD+Tower+Hotel" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/JD+%ED%83%80%EC%9B%8C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span> 放行李。
+                        <li><strong>10:00–13:30</strong> <strong>樂高樂園 (LEGOLAND Korea) 暢玩與退房準備</strong><br>11:00 前辦理樂高飯店退房手續，退房前後把握最後時光在樂高樂園裡暢玩，13:30 準時在飯店/樂園集合出發返回首爾。
+                            <ul class="poi-info">
+                                <li><b>📍 地址：</b> 강원특별자치도 춘천시 하중도길 128</li>
+                                <li><b>⏰ 營業時間：</b> 10:00 開放</li>
+                            </ul>
+                        </li>
+                        <li><strong>13:30</strong> 出發回首爾，前往東大門 <strong>JD Tower Hotel</strong> <span class="map-links-wrapper">(<a href="https://www.google.com/maps/search/?api=1&query=JD+Tower+Hotel" target="_blank" class="map-link">Google Maps</a>｜<a href="https://map.naver.com/p/search/JD+%ED%83%80%EC%9W%8C+%ED%98%B8%ED%85%94" target="_blank" class="map-link">Naver Map</a>)</span>
+                            放行李。
                             <ul class="poi-info">
                                 <li><b>📍 地址：</b> 서울 중구 동호로 347 (7F)</li>
                             </ul>
+                            <div style="margin-top: 5px;">
+                                <button class="jd-toggle-btn" id="jd-btn" onclick="toggleJdVoucher()">
+                                    <i class="fa-solid fa-hotel"></i> 🎫 查看 Agoda 飯店預訂明細 (JD Tower Hotel)
+                                </button>
+                            </div>
+                            
+                            <div class="voucher-container" id="jd-details" style="border-color: #A7F3D0;">
+                                <div class="jd-badge">Confirmed</div>
+                                <div class="voucher-header">
+                                    <div class="voucher-title" style="color: #059669;"><i class="fa-solid fa-hotel"></i> 飯店入住憑證 (JD Tower Hotel)</div>
+                                </div>
+                                <div class="voucher-grid">
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">預訂編號 (Booking ID)</div>
+                                        <div class="voucher-value" style="font-family: monospace;">1745736002</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">確認編號 (Booking Ref)</div>
+                                        <div class="voucher-value" style="font-family: monospace;">5418111467</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">客戶姓名 (Client)</div>
+                                        <div class="voucher-value">Chen Kai Yin (陳凱音)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">入住日期 (Arrival)</div>
+                                        <div class="voucher-value">2026/07/30 (四)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">退房日期 (Departure)</div>
+                                        <div class="voucher-value">2026/08/01 (六) (2 晚)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">房型 (Room Type)</div>
+                                        <div class="voucher-value">Deluxe Family Room (豪華家庭房)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">入住人數 (Guests)</div>
+                                        <div class="voucher-value">2 位成人 / 1 位兒童 (5 歲放電公主)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">會員編號 (Member ID)</div>
+                                        <div class="voucher-value" style="font-family: monospace;">10469385</div>
+                                    </div>
+                                </div>
+                                <div class="voucher-footer" style="border-left-color: #059669; background: #F0FDF4;">
+                                    <strong>💳 費用與現場付款明細：</strong>已選擇延後付款。預計於付款日扣款 <strong>KRW 611,654</strong> (已含 5% 調整，預計刷卡 Visa ****-****-****-1204)。本預訂透過 Agoda / Booking.com 完成。<br>
+                                    <strong>🎁 包含權益：</strong>免費使用健身中心 (Free fitness center access)、免費無線網路 (Free WiFi)。<br>
+                                    <strong>⚠️ 取消政策與注意事項：</strong><br>
+                                    • 可於 2026/07/27 前免費取消。逾期或當天未入住（No-Show）將扣除全額費用 (100% 房費)。<br>
+                                    • 辦理入住時，需出示與預訂姓名一致且附照片的有效身份證件 (護照)。
+                                </div>
+                            </div>
                         </li>
-                        <li><strong>傍晚：</strong> 開車回江南，<strong>20:00 前至同站還車</strong>。</li>
+                        <li><strong>傍晚：</strong> 開車回江南，<strong>20:00 前</strong> 至 LOTTE Rent-a-Car 江南營業所還車。
+                            <div style="margin-top: 5px;">
+                                <button class="lotte-toggle-btn" id="lotte-day6-btn" onclick="toggleLotteDay6()">
+                                    <i class="fa-solid fa-car"></i> 🚗 查看 Lotte 租車還車明細 (SONATA)
+                                </button>
+                            </div>
+
+                            <div class="voucher-container" id="lotte-day6-details" style="border-color: #FEB2B2;">
+                                <div class="lotte-badge">Confirmed</div>
+                                <div class="voucher-header">
+                                    <div class="voucher-title" style="color: #E60012;"><i class="fa-solid fa-car-side"></i> 樂天租車還車憑證 (LOTTE Rent-a-Car)</div>
+                                </div>
+                                <div class="voucher-grid">
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">預訂號碼 (Reservation No.)</div>
+                                        <div class="voucher-value" style="font-family: monospace; color: #E60012;">26-22-469321</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">預約車型 (Vehicle)</div>
+                                        <div class="voucher-value">SONATA (G) (Gasoline 汽油車)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">還車日期與時間 (Return Date/Time)</div>
+                                        <div class="voucher-value" style="font-weight: bold; color: #B91C1C;">2026-07-30 (四) 20:00 前</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">還車營業所 (Return Branch)</div>
+                                        <div class="voucher-value">江南營業所 (Gangnam Branch)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">還車地址 (Return Address)</div>
+                                        <div class="voucher-value">서울 강남구 테헤란로81길 53</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">預訂姓名 (Name)</div>
+                                        <div class="voucher-value">CHEN KAI YIN (陳凱音)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">保險種類 (Insurance)</div>
+                                        <div class="voucher-value">CDW-Zero Excess (免責零自付額全險)</div>
+                                    </div>
+                                    <div class="voucher-item">
+                                        <div class="voucher-label">加購配備 (Options)</div>
+                                        <div class="voucher-value">1個兒童安全座椅 (For Junior 1ea)</div>
+                                    </div>
+                                </div>
+                                <div class="voucher-footer" style="border-left-color: #E60012; background: #FFF5F5;">
+                                    <strong>🔑 還車重要提醒與流程：</strong><br>
+                                    1. <strong>滿油還車：</strong> 汽油車 SONATA 請於還車前，在營業所附近的加油站將油箱加滿 (並保留加油收據)。<br>
+                                    2. <strong>超時費用：</strong> 依合約時間需於 20:00 前歸還。若因路況延誤，請提早致電江南營業所（或客服中心 1588-1230）告知。<br>
+                                    3. <strong>車況檢查：</strong> 抵達後，工作人員將檢查車身狀況、配備 (包含兒童安全座椅) 及油箱油量。若無異常即可完成還車流程！
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="section-block food-block">
@@ -278,34 +1469,575 @@
                 <div class="day-title">📆 Day 8（8/1 六）平安返程</div>
                 <div class="section-block">
                     <h4><i class="fa-solid fa-plane-departure"></i> 今日行程</h4>
-                    <p><strong>08:00</strong> 準時出發 ➡️ 搭計程車前往金浦機場（車程約 50 分鐘） ➡️ 辦理登機退稅 ➡️ 搭乘 11點多 班機平安回台灣，結束精彩旅程！</p>
+                    <p><strong>08:00</strong> 準時出發 ➡️ 搭計程車前往金浦機場（車程約 50 分鐘） ➡️ 辦理登機與自助退稅 ➡️ 搭乘 <strong>11:15 首爾金浦 (GMP) ➡️ 12:55 台北松山 (TSA)</strong> 易斯達航空 ZE 887 班機平安回台灣，結束精彩的 8 日親子之旅！</p>
+                    
+                    <button class="flight-toggle-btn" id="flight-day8-btn" onclick="toggleFlightDay8()">
+                        <i class="fa-solid fa-plane"></i> ✈️ 查看回程機票明細 (ZE 887)
+                    </button>
+
+                    <div class="voucher-container" id="flight-day8-details" style="border-color: #C7D2FE;">
+                        <div class="flight-badge">Confirmed</div>
+                        <div class="voucher-header">
+                            <div class="voucher-title"><i class="fa-solid fa-ticket"></i> 易斯達航空回程機票 (GMP ➡️ TSA)</div>
+                        </div>
+                        <div class="voucher-grid">
+                            <div class="voucher-item">
+                                <div class="voucher-label">預約編號 (Booking Ref / PNR)</div>
+                                <div class="voucher-value" style="font-family: monospace; color: #4F46E5;">DYI2SA</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">航空公司 (Airline)</div>
+                                <div class="voucher-value">Eastar Jet (易斯達航空)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">航班號碼 (Flight No.)</div>
+                                <div class="voucher-value">ZE 887</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">出發機場 (Departure)</div>
+                                <div class="voucher-value">首爾金浦 (GMP) 11:15</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">抵達機場 (Arrival)</div>
+                                <div class="voucher-value">台北松山 (TSA) 12:55</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">搭乘旅客 (Passengers)</div>
+                                <div class="voucher-value">3 名 (2 大 1 小)</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">行李額度 (Baggage)</div>
+                                <div class="voucher-value">每人免費 15kg 託運</div>
+                            </div>
+                            <div class="voucher-item">
+                                <div class="voucher-label">票種 (Class)</div>
+                                <div class="voucher-value">折扣票</div>
+                            </div>
+                        </div>
+                        <div class="voucher-footer" style="border-left-color: #4F46E5;">
+                            <strong>💡 回程重要提醒：</strong><br>
+                            • 請務必於 09:15 前（起飛前 2 小時）抵達金浦機場辦理登機與託運。<br>
+                            • 易斯達航空登機櫃檯在起飛前 40 分鐘關閉。<br>
+                            • 若需退稅，請在海關蓋章或至 Kiosk 自助機掃描護照及單據，再進候機室領取退稅款。
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div class="weather-section" id="weather-section" style="margin-top: 25px;">
+        <h3><i class="fa-solid fa-cloud-sun-rain"></i> ☀️ 歷史氣候預報及穿著指南</h3>
+        <div class="weather-grid" id="weather-grid">
+            <!-- Dynamic Weather Card will be injected here -->
+        </div>
+        <div class="weather-tips" id="weather-tips-content">
+            <!-- Dynamic Tips will be injected here -->
+        </div>
+    </div>
 </div>
 
 <script>
+    const weatherData = {
+        day1: {
+            title: "Day 1 (7/25 六)",
+            city: "首爾 (Seoul)",
+            temp: "25°C~31°C",
+            icon: "fa-cloud-showers-water",
+            iconColor: "#0284c7",
+            desc: "高溫多濕、午後易有陣雨 / 梅雨季尾聲",
+            comment: "抵達首爾第一天，氣候高溫多濕，午後或傍晚防局部大雨。建議隨身攜帶雨具，午後可多安排備用室內行程。",
+            tips: [
+                "<strong>一家三口：</strong>輕便吸濕排汗衣物與短褲，穿著好走且防滑的運動涼鞋，防濕又防滑。",
+                "<strong>防雨對策：</strong>隨身攜帶輕便摺疊傘或雨衣，防範突如其來的午後雷陣雨。",
+                "<strong>公主保暖：</strong>隨身攜帶一件超薄外套，防止出入冷氣強勁的機場與飯店時溫差感冒。"
+            ]
+        },
+        day2: {
+            title: "Day 2 (7/26 日)",
+            city: "首爾 (Seoul)",
+            temp: "25°C~31°C",
+            icon: "fa-cloud-sun-rain",
+            iconColor: "#3b82f6",
+            desc: "高溫多濕、午後易有雷陣雨",
+            comment: "今日前往室內動物園及漢江公園。中午前後天氣闷熱，濕度大，傍晚江邊起風。午後易有短暫大雷雨。",
+            tips: [
+                "<strong>透氣穿搭：</strong>建議給小公主穿吸汗透氣純棉衣服，大人穿排汗短袖短褲，配舒適涼鞋。",
+                "<strong>防曬準備：</strong>汝矣島漢江公園戶外活動，請塗抹防曬乳、戴遮陽帽或墨鏡。",
+                "<strong>江邊防蚊：</strong>傍晚江邊活動容易有蚊蟲，請攜帶兒童防蚊液、防蚊貼片。"
+            ]
+        },
+        day3: {
+            title: "Day 3 (7/27 一)",
+            city: "首爾 (Seoul)",
+            temp: "25°C~31°C",
+            icon: "fa-cloud-sun",
+            iconColor: "#f59e0b",
+            desc: "多雲 / 悶熱午後有局部陣雨",
+            comment: "今天在樂天世界暢玩整天！由於大部分是在室內（探險世界）或室外（魔幻島），強烈冷氣與室外高溫交替，需防溫差。",
+            tips: [
+                "<strong>室內防冷：</strong>樂天世界室內展館冷氣非常強勁，請務必幫小公主和大人隨身攜帶一件輕便薄外套。",
+                "<strong>防滑鞋款：</strong>建議穿著包覆性好、防滑的運動鞋，便於全天奔波、排隊與玩樂。",
+                "<strong>多喝水：</strong>戶外魔幻島區域依舊悶熱，請隨身攜帶水壺，隨時為大人小孩補水防中暑。"
+            ]
+        },
+        day4: {
+            title: "Day 4 (7/28 二)",
+            city: "春川 (Chuncheon)",
+            temp: "23°C~30°C",
+            icon: "fa-sun",
+            iconColor: "#ea580c",
+            desc: "盆地地形、白天強烈日曬、清晨微涼",
+            comment: "今日前往春川羊駝世界與樂高樂園飯店。山區盆地中午前後陽光猛烈，紫外線極強，但山林微風清涼，早晚會有一絲涼意。",
+            tips: [
+                "<strong>極致防曬：</strong>羊駝世界多為戶外坡道，強烈強光無遮蔽。務必給一家三口戴上寬簷遮陽帽、太陽眼鏡，擦足防曬乳。",
+                "<strong>舒適便鞋：</strong>羊駝世界需要爬坡與餵羊駝，請務必穿好走的布鞋或防滑休閒鞋。",
+                "<strong>早晚薄外套：</strong>春川山區早晚稍有涼意，回飯店或傍晚散步時可以加上一件薄外套。"
+            ]
+        },
+        day5: {
+            title: "Day 5 (7/29 三)",
+            city: "春川 (Chuncheon)",
+            temp: "23°C~30°C",
+            icon: "fa-sun",
+            iconColor: "#eab308",
+            desc: "晴空萬里 / 盛夏日曬強烈",
+            comment: "樂高樂園整天暢玩！園區樹蔭與遮蔽物極少，高溫日曬強烈，且有水上遊樂設施，防曬與防濕是今天的主旋律。",
+            tips: [
+                "<strong>玩水速乾：</strong>推薦穿著輕薄「排汗速乾衣服」或運動涼鞋。建議給小公主多帶一套替換衣物及小毛巾防感冒。",
+                "<strong>備用雨衣：</strong>水上遊樂設施（如 Splash Battle）極易淋濕，可穿著自備的小公主雨衣或輕便雨衣玩樂。",
+                "<strong>防暑補水：</strong>高溫曝曬，請每半小時提醒小公主和大人喝水，隨身包包內可準備濕紙巾擦汗降溫。"
+            ]
+        },
+        day6: {
+            title: "Day 6 (7/30 四)",
+            city: "春川 ➡️ 首爾 (Seoul)",
+            temp: "25°C~31°C",
+            icon: "fa-cloud-sun-rain",
+            iconColor: "#3b82f6",
+            desc: "多雲悶熱 / 局部短暫陣雨",
+            comment: "今天退房、自駕回首爾還車，入住東大門 JD Tower Hotel，晚上步行吃一隻雞。重新回到濕度高、悶熱的首爾市區。",
+            tips: [
+                "<strong>好穿脫便鞋：</strong>今天有較多時間在車上及搬運行李，推薦穿著好穿脫、透氣的休閒便鞋。",
+                "<strong>輕便服飾：</strong>寬鬆舒適的純棉 T 恤及排汗短褲最適合今日行程，體感較不黏膩。",
+                "<strong>雨具隨身：</strong>首爾近郊與市區易有午後短暫陣雨，下車還車、步行時建議包裡帶把摺疊傘。"
+            ]
+        },
+        day7: {
+            title: "Day 7 (7/31 五)",
+            city: "首爾 (Seoul)",
+            temp: "25°C~31°C",
+            icon: "fa-temperature-high",
+            iconColor: "#ef4444",
+            desc: "高溫炎熱、午後局部陣雨",
+            comment: "今天前往兒童大公園、文具玩具街，再到樂天超市採購。戶外行走與步行時間長，體感非常悶熱，汗水量大。",
+            tips: [
+                "<strong>防磨腳跑鞋：</strong>兒童大公園占地廣大，玩具街也需要大量步行，強烈建議穿最舒適、防磨腳的慢跑鞋或防滑休閒鞋。",
+                "<strong>大汗對策：</strong>建議隨身多帶一條小手帕或濕紙巾給小公主擦汗，並擦足防曬，適時走入室內或陰涼處休息。",
+                "<strong>商場防冷：</strong>樂天超市等大型賣場空調充足，採購時間長，別忘了幫小公主準備一件薄薄的外套防風。"
+            ]
+        },
+        day8: {
+            title: "Day 8 (8/1 六)",
+            city: "首爾 (Seoul)",
+            temp: "25°C~31°C",
+            icon: "fa-cloud",
+            iconColor: "#94a3b8",
+            desc: "多雲悶熱 / 適合搭機",
+            comment: "旅行最後一天，搭計程車前往金浦機場平安返台。主要在車內、機場大廳與機艙內，全天都在冷氣房，舒適便於搭機為首要。",
+            tips: [
+                "<strong>搭機穿著：</strong>推薦穿著彈性棉質、寬鬆的衣物與薄長褲，保護雙腿，避免高空機艙冷氣過冷。",
+                "<strong>好穿脫鞋子：</strong>安檢和飛機上建議穿著好穿脫的便鞋，可以放鬆足部壓力。",
+                "<strong>隨身防風：</strong>隨身提袋裡一定要放薄外套，因應機場冷氣及飛機上的強勁風道。"
+            ]
+        }
+    };
+
+    function updateWeather(dayId) {
+        const data = weatherData[dayId];
+        if (!data) return;
+
+        const weatherSection = document.getElementById('weather-section');
+        if (!weatherSection) return;
+
+        const h3 = weatherSection.querySelector('h3');
+        if (h3) {
+            h3.innerHTML = `<i class="fa-solid fa-cloud-sun-rain"></i> ☀️ 歷史氣候預報及穿著指南 — ${data.title}`;
+        }
+
+        const grid = document.getElementById('weather-grid');
+        if (grid) {
+            grid.innerHTML = `
+                <div class="weather-card" style="width: 100%; max-width: 100%; grid-column: 1 / -1;">
+                    <div class="weather-city">
+                        ${data.city} <span>${data.title}</span>
+                    </div>
+                    <div class="weather-stats">
+                        <div class="weather-temp">${data.temp}</div>
+                        <div class="weather-desc">
+                            <i class="fa-solid ${data.icon}" style="color: ${data.iconColor}; font-size: 1.4em;"></i>
+                            <strong>${data.desc}</strong>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: #475569; line-height: 1.5; margin-top: 10px;">
+                        ${data.comment}
+                    </p>
+                </div>
+            `;
+        }
+
+        const tipsContent = document.getElementById('weather-tips-content');
+        if (tipsContent) {
+            let tipsHtml = `
+                <p><i class="fa-solid fa-shirt"></i> 👨‍👩‍👧 一家三口穿著與防曬準備指南</p>
+                <ul>
+            `;
+            data.tips.forEach(tip => {
+                tipsHtml += `<li>${tip}</li>`;
+            });
+            tipsHtml += `</ul>`;
+            tipsContent.innerHTML = tipsHtml;
+        }
+    }
+
     function switchDay(evt, dayId) {
         const tabButtons = document.querySelectorAll('.tab-btn');
         tabButtons.forEach(btn => btn.classList.remove('active'));
         if(evt && evt.currentTarget) {
             evt.currentTarget.classList.add('active');
         } else if (evt && evt.target) {
-            evt.target.closest('button').classList.add('active');
+            const btn = evt.target.closest('button');
+            if (btn) btn.classList.add('active');
+        } else {
+            const btn = Array.from(tabButtons).find(b => {
+                const attr = b.getAttribute('onclick');
+                return attr && attr.includes(dayId);
+            });
+            if (btn) btn.classList.add('active');
         }
         const dayPanels = document.querySelectorAll('.day-panel');
         dayPanels.forEach(panel => panel.classList.remove('active'));
-        document.getElementById(dayId).classList.add('active');
+        const activePanel = document.getElementById(dayId);
+        if (activePanel) {
+            activePanel.classList.add('active');
+        }
+
+        // Dynamically update weather forecast
+        updateWeather(dayId);
     }
 
-    function toggleTodo(checkbox) {
-        const label = checkbox.parentElement;
-        if (checkbox.checked) {
-            label.classList.add('done');
+    const mapData = {
+        day1: [
+            { name: "🏨 Goyouin & Holmes (飯店)", address: "서울 강남구 선릉로92길 37-6", googleQuery: "Goyouin & Holmes", naverQuery: "고유인앤홈즈" },
+            { name: "🥣 宣陵雪濃湯 (선릉설렁탕)", address: "서울 강남구 선릉로93길 27", googleQuery: "선릉설렁탕", naverQuery: "선릉설렁탕" },
+            { name: "🍲 雪基玉 宣陵總店", address: "서울 강남구 역삼동", googleQuery: "설기옥 선릉본점", naverQuery: "설기옥 선릉본점" }
+        ],
+        day2: [
+            { name: "🐾 Zoolung Zoolung 永登浦店", address: "서울 영등포구 영중로 15", googleQuery: "Zoolung Zoolung Yeongdeungpo", naverQuery: "주렁주렁 타임스퀘어점" },
+            { name: "🚢 汝矣島漢江公園 (搭海鷗船)", address: "서울 영등포구 여의동로 330", googleQuery: "Yeouido Hangang Park", naverQuery: "여의도한강공원" },
+            { name: "🛍️ The Hyundai Seoul (現代百貨)", address: "서울 영등포구 여의대로 108", googleQuery: "The Hyundai Seoul", naverQuery: "더현대 서울" }
+        ],
+        day3: [
+            { name: "🎢 樂天世界 Lotte World", address: "서울 송파구 올림픽로 240", googleQuery: "Lotte World", naverQuery: "롯데월드" },
+            { name: "🚗 LOTTE Rent-a-Car 江南據點", address: "서울 강남구 테헤란로 114", googleQuery: "LOTTE Rent-a-Car 江南", naverQuery: "롯데렌터카 강남지점" }
+        ],
+        day4: [
+            { name: "🦙 羊駝世界 Alpaca World", address: "강원특별자치도 홍천군 화촌면 풍천리 310", googleQuery: "Alpaca World", naverQuery: "알파카월드" },
+            { name: "🏨 春川樂高飯店 LEGOLAND Hotel", address: "강원특별자치도 춘천시 하중도길 128", googleQuery: "LEGOLAND Hotel Korea", naverQuery: "레고랜드 호텔" }
+        ],
+        day5: [
+            { name: "🎡 樂高樂園 LEGOLAND Korea", address: "강원특별자치도 춘천시 하중도길 128", googleQuery: "LEGOLAND Korea", naverQuery: "레고랜드 코리아 리조트" }
+        ],
+        day6: [
+            { name: "🏨 JD Tower Hotel (飯店)", address: "서울 中구 동호로 347", googleQuery: "JD Tower Hotel", naverQuery: "JD 타워 호텔" },
+            { name: "🚗 LOTTE Rent-a-Car 江南據點", address: "서울 강남구 테헤란로 114", googleQuery: "LOTTE Rent-a-Car 江南", naverQuery: "롯데렌터카 강남지점" },
+            { name: "🍗 陳玉華一隻雞", address: "서울 종로구 종로40가길 18", googleQuery: "Jin Okhwa Original Chicken Restaurant", naverQuery: "진옥화할매원조닭한마리" }
+        ],
+        day7: [
+            { name: "🦒 兒童大公園", address: "서울 광진구 능동로 216", googleQuery: "Children's Grand Park Seoul", naverQuery: "어린이대공원" },
+            { name: "🧸 昌信洞文具玩具街", address: "서울 종로구 종로52길 36", googleQuery: "Changsin-dong Stationery and Toy Street", naverQuery: "창신동 문구완구거리" },
+            { name: "🛒 樂天超市首爾站店", address: "서울 중구 한강대로 405", googleQuery: "Lotte Mart Seoul Station", naverQuery: "롯데마트 제타플렉스 서울역점" }
+        ],
+        day8: [
+            { name: "✈️ 金浦機場", address: "서울 강서구 하늘길 112", googleQuery: "Gimpo International Airport", naverQuery: "김포국제공항" }
+        ]
+    };
+
+    function initDayMaps() {
+        Object.keys(mapData).forEach(dayId => {
+            const dayPanel = document.getElementById(dayId);
+            if (!dayPanel) return;
+
+            const dayTitle = dayPanel.querySelector('.day-title');
+            if (!dayTitle) return;
+
+            // Create Section Container
+            const mapSection = document.createElement('div');
+            mapSection.className = 'day-map-section';
+            mapSection.style.marginBottom = '20px';
+
+            // 1. Toggle Button
+            const toggleBtn = document.createElement('button');
+            toggleBtn.className = 'map-toggle-btn';
+            toggleBtn.id = `map-toggle-btn-${dayId}`;
+            toggleBtn.innerHTML = `<i class="fa-solid fa-map-location-dot"></i> 🗺️ 顯示今日地圖預覽`;
+            toggleBtn.onclick = () => toggleMap(dayId);
+
+            // 2. Map Container (collapsible)
+            const mapContainer = document.createElement('div');
+            mapContainer.className = 'map-preview-container';
+            mapContainer.id = `map-container-${dayId}`;
+
+            // Spots list
+            const spots = mapData[dayId];
+            
+            // Let's create chip selector if there are multiple spots
+            const chipsContainer = document.createElement('div');
+            chipsContainer.className = 'map-spot-chips';
+            
+            spots.forEach((spot, idx) => {
+                const chip = document.createElement('button');
+                chip.className = `map-chip ${idx === 0 ? 'active' : ''}`;
+                chip.innerText = spot.name;
+                chip.onclick = () => {
+                    // Remove active class from other chips in this container
+                    chipsContainer.querySelectorAll('.map-chip').forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+                    
+                    // Update iframe source
+                    const iframe = mapContainer.querySelector('.map-iframe');
+                    const spinner = mapContainer.querySelector('.map-spinner');
+                    if (iframe) {
+                        if (spinner) spinner.style.opacity = '1';
+                        iframe.src = `https://maps.google.com/maps?q=${encodeURIComponent(spot.address || spot.name)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+                    }
+
+                    // Update external links
+                    const googleLink = mapContainer.querySelector('.ext-google-link');
+                    const naverLink = mapContainer.querySelector('.ext-naver-link');
+                    if (googleLink) {
+                        googleLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.googleQuery || spot.name)}`;
+                    }
+                    if (naverLink) {
+                        naverLink.href = `https://map.naver.com/p/search/${encodeURIComponent(spot.naverQuery || spot.name)}`;
+                    }
+                };
+                chipsContainer.appendChild(chip);
+            });
+
+            // If there's only 1 spot, hide chips container
+            if (spots.length <= 1) {
+                chipsContainer.style.display = 'none';
+            }
+
+            // Iframe Wrapper
+            const iframeWrapper = document.createElement('div');
+            iframeWrapper.className = 'map-iframe-wrapper';
+
+            // Loading spinner/placeholder
+            const spinner = document.createElement('div');
+            spinner.className = 'map-spinner';
+            spinner.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> 載入地圖中...`;
+            
+            const firstSpot = spots[0];
+            const iframe = document.createElement('iframe');
+            iframe.className = 'map-iframe';
+            iframe.title = 'Map Preview';
+            iframe.loading = 'lazy';
+            // Note: we set data-src and only load when expanded to save performance!
+            iframe.dataset.src = `https://maps.google.com/maps?q=${encodeURIComponent(firstSpot.address || firstSpot.name)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+            
+            iframeWrapper.appendChild(spinner);
+            iframeWrapper.appendChild(iframe);
+
+            // External Link Box
+            const linkBox = document.createElement('div');
+            linkBox.className = 'map-link-box';
+            
+            const googleLink = document.createElement('a');
+            googleLink.className = 'map-nav-btn google ext-google-link';
+            googleLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(firstSpot.googleQuery || firstSpot.name)}`;
+            googleLink.target = '_blank';
+            googleLink.innerHTML = `<i class="fa-brands fa-google"></i> Google Maps 導航`;
+
+            const naverLink = document.createElement('a');
+            naverLink.className = 'map-nav-btn naver ext-naver-link';
+            naverLink.href = `https://map.naver.com/p/search/${encodeURIComponent(firstSpot.naverQuery || firstSpot.name)}`;
+            naverLink.target = '_blank';
+            naverLink.innerHTML = `<i class="fa-solid fa-location-arrow"></i> Naver Map 導航`;
+
+            linkBox.appendChild(googleLink);
+            linkBox.appendChild(naverLink);
+
+            // Assemble Map Container
+            mapContainer.appendChild(chipsContainer);
+            mapContainer.appendChild(iframeWrapper);
+            mapContainer.appendChild(linkBox);
+
+            // Put them into Map Section
+            mapSection.appendChild(toggleBtn);
+            mapSection.appendChild(mapContainer);
+
+            // Insert after Day Title
+            dayTitle.parentNode.insertBefore(mapSection, dayTitle.nextSibling);
+        });
+    }
+
+    function toggleMap(dayId) {
+        const container = document.getElementById(`map-container-${dayId}`);
+        const btn = document.getElementById(`map-toggle-btn-${dayId}`);
+        if (!container) return;
+
+        const isActive = container.classList.contains('active');
+        
+        // Close other active map containers to keep view neat and save resources
+        document.querySelectorAll('.map-preview-container').forEach(c => {
+            if (c.id !== `map-container-${dayId}`) {
+                c.classList.remove('active');
+                const otherDayId = c.id.replace('map-container-', '');
+                const otherBtn = document.getElementById(`map-toggle-btn-${otherDayId}`);
+                if (otherBtn) {
+                    otherBtn.innerHTML = `<i class="fa-solid fa-map-location-dot"></i> 顯示今日地圖預覽`;
+                    otherBtn.classList.remove('expanded');
+                }
+            }
+        });
+
+        if (isActive) {
+            container.classList.remove('active');
+            btn.innerHTML = `<i class="fa-solid fa-map-location-dot"></i> 顯示今日地圖預覽`;
+            btn.classList.remove('expanded');
         } else {
-            label.classList.remove('done');
+            container.classList.add('active');
+            btn.innerHTML = `<i class="fa-solid fa-map-location-dot"></i> 隱藏今日地圖預覽`;
+            btn.classList.add('expanded');
+            
+            // Lazy load the iframe source if not loaded yet
+            const iframe = container.querySelector('.map-iframe');
+            if (iframe && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+                // Hide spinner when iframe loaded
+                iframe.onload = () => {
+                    const spinner = container.querySelector('.map-spinner');
+                    if (spinner) spinner.style.opacity = '0';
+                };
+            }
+        }
+    }
+
+    function toggleFlightDay1() {
+        const container = document.getElementById('flight-day1-details');
+        const btn = document.getElementById('flight-day1-btn');
+        if (!container) return;
+        const isActive = container.classList.contains('active');
+        if (isActive) {
+            container.classList.remove('active');
+            btn.innerHTML = `<i class="fa-solid fa-plane"></i> ✈️ 查看去程機票明細 (ZE 888)`;
+        } else {
+            container.classList.add('active');
+            btn.innerHTML = `<i class="fa-solid fa-plane"></i> ✈️ 隱藏去程機票明細 (ZE 888)`;
+        }
+    }
+
+    function toggleFlightDay8() {
+        const container = document.getElementById('flight-day8-details');
+        const btn = document.getElementById('flight-day8-btn');
+        if (!container) return;
+        const isActive = container.classList.contains('active');
+        if (isActive) {
+            container.classList.remove('active');
+            btn.innerHTML = `<i class="fa-solid fa-plane"></i> ✈️ 查看回程機票明細 (ZE 887)`;
+        } else {
+            container.classList.add('active');
+            btn.innerHTML = `<i class="fa-solid fa-plane"></i> ✈️ 隱藏回程機票明細 (ZE 887)`;
+        }
+    }
+
+    function toggleVoucher() {
+        const container = document.getElementById('voucher-details');
+        const btn = document.getElementById('voucher-btn');
+        if (!container) return;
+        const isActive = container.classList.contains('active');
+        if (isActive) {
+            container.classList.remove('active');
+            btn.innerHTML = `<i class="fa-solid fa-receipt"></i> 🎫 查看 Agoda 飯店預訂明細`;
+        } else {
+            container.classList.add('active');
+            btn.innerHTML = `<i class="fa-solid fa-receipt"></i> 🎫 隱藏 Agoda 飯店預訂明細`;
+        }
+    }
+
+    function toggleLegoVoucher() {
+        const container = document.getElementById('lego-details');
+        const btn = document.getElementById('lego-btn');
+        if (!container) return;
+        const isActive = container.classList.contains('active');
+        if (isActive) {
+            container.classList.remove('active');
+            btn.innerHTML = `<i class="fa-solid fa-hotel"></i> 🎫 查看樂高飯店預訂明細 (LEGOLAND Hotel)`;
+        } else {
+            container.classList.add('active');
+            btn.innerHTML = `<i class="fa-solid fa-hotel"></i> 🎫 隱藏樂高飯店預訂明細 (LEGOLAND Hotel)`;
+        }
+    }
+
+    function toggleJdVoucher() {
+        const container = document.getElementById('jd-details');
+        const btn = document.getElementById('jd-btn');
+        if (!container) return;
+        const isActive = container.classList.contains('active');
+        if (isActive) {
+            container.classList.remove('active');
+            btn.innerHTML = `<i class="fa-solid fa-hotel"></i> 🎫 查看 Agoda 飯店預訂明細 (JD Tower Hotel)`;
+        } else {
+            container.classList.add('active');
+            btn.innerHTML = `<i class="fa-solid fa-hotel"></i> 🎫 隱藏 Agoda 飯店預訂明細 (JD Tower Hotel)`;
+        }
+    }
+
+    function toggleLotteDay3() {
+        const container = document.getElementById('lotte-day3-details');
+        const btn = document.getElementById('lotte-day3-btn');
+        if (!container) return;
+        const isActive = container.classList.contains('active');
+        if (isActive) {
+            container.classList.remove('active');
+            btn.innerHTML = `<i class="fa-solid fa-car"></i> 🚗 查看 Lotte 租車預訂明細 (SONATA)`;
+        } else {
+            container.classList.add('active');
+            btn.innerHTML = `<i class="fa-solid fa-car"></i> 🚗 隱藏 Lotte 租車預訂明細 (SONATA)`;
+        }
+    }
+
+    function toggleLotteDay6() {
+        const container = document.getElementById('lotte-day6-details');
+        const btn = document.getElementById('lotte-day6-btn');
+        if (!container) return;
+        const isActive = container.classList.contains('active');
+        if (isActive) {
+            container.classList.remove('active');
+            btn.innerHTML = `<i class="fa-solid fa-car"></i> 🚗 查看 Lotte 租車還車明細 (SONATA)`;
+        } else {
+            container.classList.add('active');
+            btn.innerHTML = `<i class="fa-solid fa-car"></i> 🚗 隱藏 Lotte 租車還車明細 (SONATA)`;
+        }
+    }
+
+    function toggleDarkMode() {
+        const body = document.body;
+        const isDark = body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateToggleBtn(isDark);
+    }
+
+    function updateToggleBtn(isDark) {
+        const btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        if (isDark) {
+            btn.innerHTML = `<i class="fa-solid fa-sun"></i> <span>淺色模式</span>`;
+        } else {
+            btn.innerHTML = `<i class="fa-solid fa-moon"></i> <span>深色模式</span>`;
         }
     }
 
@@ -323,6 +2055,13 @@
         else if (month === 7 && date === 31) { targetId = 'day7'; }
         else if (month === 8 && date === 1) { targetId = 'day8'; }
         else if (month === 8 && date > 1 || month > 8) { targetId = 'day8'; }
+
+        // Initialize maps
+        initDayMaps();
+
+        // Update the dark mode toggle button text on load
+        const isDark = document.body.classList.contains('dark-mode');
+        updateToggleBtn(isDark);
 
         const btn = document.querySelector(`button[onclick*="${targetId}"]`);
         if (btn) {
