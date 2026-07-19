@@ -608,9 +608,22 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .trip-layout { flex-direction: column; }
-            .tabs { flex-direction: row; overflow-x: auto; padding-bottom: 10px; min-width: 100%; }
-            .tab-btn { white-space: nowrap; padding: 10px 15px; font-size: 14px; gap: 10px; }
+            body { padding: 6px; }
+            .container { padding: 12px; border-radius: 10px; }
+            .content-area { padding: 10px; border-radius: 8px; }
+            .trip-layout { flex-direction: column; gap: 12px; }
+            .tabs { flex-direction: row; overflow-x: auto; padding-bottom: 8px; min-width: 100%; gap: 6px; }
+            .tab-btn { white-space: nowrap; padding: 8px 12px; font-size: 13px; gap: 6px; }
+            header { margin-bottom: 15px; padding-bottom: 10px; }
+            header h1 { font-size: 20px; }
+            header p { font-size: 13px; }
+            .day-title { font-size: 17px; margin-bottom: 12px; }
+            .section-block { padding: 12px; margin-bottom: 12px; }
+            .section-block p, .section-block li { font-size: 13px; }
+            .poi-info { padding: 8px 10px; margin-top: 4px; margin-bottom: 8px; }
+            .voucher-container { padding: 12px; }
+            .weather-section { padding: 12px; }
+            .converter-section { padding: 12px; }
         }
 
         /* Dark Mode variables & overrides */
@@ -877,6 +890,260 @@
         body.dark-mode .checklist-item input[type="checkbox"] {
             accent-color: #2563eb;
         }
+        body.dark-mode .checklist-progress-wrapper {
+            background: #2d3142;
+            border-color: #334155;
+        }
+        body.dark-mode #checklist-progress-text {
+            color: #cbd5e1 !important;
+        }
+
+        /* Set consistent button heights and alignment for all travel detail toggles */
+        .voucher-toggle-btn,
+        .flight-toggle-btn,
+        .lego-toggle-btn,
+        .jd-toggle-btn,
+        .lotte-toggle-btn {
+            height: 38px;
+            box-sizing: border-box;
+            line-height: 1;
+            margin-top: 10px !important;
+            margin-bottom: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+        }
+
+        /* Widgets Layout Row */
+        .widgets-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+            align-items: start;
+        }
+        @media (max-width: 992px) {
+            .widgets-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Currency Converter Styling */
+        .converter-section {
+            background: linear-gradient(135deg, #FFFDF0 0%, #FFF9E6 100%);
+            border-left: 5px solid #FFD166;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            box-sizing: border-box;
+        }
+        .converter-section h3 {
+            margin-bottom: 12px;
+            color: #b45309;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+        }
+        .converter-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .converter-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .converter-input-group label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #78350f;
+        }
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-wrapper input {
+            width: 100%;
+            padding: 8px 35px 8px 12px;
+            border: 1px solid #FCD34D;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            outline: none;
+            transition: all 0.2s ease;
+            background: white;
+        }
+        .input-wrapper input:focus {
+            border-color: #D97706;
+            box-shadow: 0 0 0 3px rgba(251,191,36,0.2);
+        }
+        .currency-unit {
+            position: absolute;
+            right: 12px;
+            font-weight: 700;
+            color: #d97706;
+            font-size: 14px;
+        }
+        .converter-swap-icon {
+            align-self: center;
+            color: #d97706;
+            font-size: 14px;
+            margin: -2px 0;
+            background: #FEF3C7;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .rate-config {
+            font-size: 12px;
+            color: #b45309;
+            background: rgba(254, 243, 199, 0.5);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px dashed #FCD34D;
+        }
+        .rate-label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 2px;
+            font-weight: 600;
+            flex-wrap: wrap;
+        }
+        .rate-tip {
+            font-size: 10px;
+            color: #d97706;
+            opacity: 0.9;
+        }
+        #rate-fetch-status {
+            font-size: 11px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #b45309;
+            font-weight: 500;
+        }
+        #rate-fetch-status.success {
+            color: #10b981;
+        }
+        #rate-fetch-status.error {
+            color: #ef4444;
+        }
+        body.dark-mode #rate-fetch-status {
+            color: #fbbf24;
+        }
+        body.dark-mode #rate-fetch-status.success {
+            color: #34d399;
+        }
+        body.dark-mode #rate-fetch-status.error {
+            color: #f87171;
+        }
+        .quick-table-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #78350f;
+            margin-top: 8px;
+            border-top: 1px solid #FCD34D;
+            padding-top: 10px;
+        }
+        .quick-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .quick-row {
+            background: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #FEF3C7;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .quick-row:hover {
+            background: #FEF3C7;
+            border-color: #FCD34D;
+            transform: translateY(-1px);
+        }
+        .quick-row span:first-child {
+            color: #451a03;
+        }
+        .quick-row span:last-child {
+            color: #d97706;
+        }
+
+        /* Dark Mode overrides for Currency Converter */
+        body.dark-mode .converter-section {
+            background: linear-gradient(135deg, #1e1b12 0%, #2b2315 100%);
+            border-left-color: #d97706;
+        }
+        body.dark-mode .converter-section h3 {
+            color: #fbbf24;
+        }
+        body.dark-mode .converter-input-group label {
+            color: #f59e0b;
+        }
+        body.dark-mode .input-wrapper input {
+            background: #1c1917;
+            border-color: #78350f;
+            color: #f1f5f9;
+        }
+        body.dark-mode .input-wrapper input:focus {
+            border-color: #d97706;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+        body.dark-mode .currency-unit {
+            color: #fbbf24;
+        }
+        body.dark-mode .converter-swap-icon {
+            background: #451a03;
+            color: #fbbf24;
+        }
+        body.dark-mode .rate-config {
+            background: rgba(69, 26, 3, 0.3);
+            border-color: #78350f;
+            color: #fbbf24;
+        }
+        body.dark-mode .rate-config input {
+            background: #1c1917;
+            border-color: #78350f;
+            color: #f1f5f9;
+        }
+        body.dark-mode .rate-tip {
+            color: #fbbf24;
+        }
+        body.dark-mode .quick-table-title {
+            color: #f59e0b;
+            border-top-color: #78350f;
+        }
+        body.dark-mode .quick-row {
+            background: #1c1917;
+            border-color: #451a03;
+        }
+        body.dark-mode .quick-row:hover {
+            background: #451a03;
+            border-color: #78350f;
+        }
+        body.dark-mode .quick-row span:first-child {
+            color: #f1f5f9;
+        }
+        body.dark-mode .quick-row span:last-child {
+            color: #fbbf24;
+        }
 
         @media (max-width: 768px) {
             .dark-mode-toggle {
@@ -937,7 +1204,7 @@
                         <button class="flight-toggle-btn" id="flight-day1-btn" onclick="toggleFlightDay1()">
                             <i class="fa-solid fa-plane"></i> ✈️ 查看去程機票明細 (ZE 888)
                         </button>
-                        <button class="voucher-toggle-btn" id="voucher-btn" onclick="toggleVoucher()" style="margin-top: 0;">
+                        <button class="voucher-toggle-btn" id="voucher-btn" onclick="toggleVoucher()">
                             <i class="fa-solid fa-receipt"></i> 🎫 查看 Agoda 飯店預訂明細
                         </button>
                     </div>
@@ -1052,10 +1319,19 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="checklist-block" id="luggage-checklist-section">
                     <h3><i class="fa-solid fa-suitcase"></i> 🧳 建議行李檢查表 (一家三口首爾盛夏慢遊)</h3>
-                    <p style="font-size: 13px; color: var(--gray); margin-bottom: 15px; margin-top: 5px;">點擊項目可進行勾選紀錄，系統會自動在瀏覽器中儲存您的整理進度！</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 12px; gap: 10px;">
+                        <p style="font-size: 13px; color: var(--gray); margin-top: 5px;">點擊項目可進行勾選紀錄，系統會自動在瀏覽器中儲存您的整理進度！</p>
+                        <button onclick="resetChecklist()" style="background: #ef4444; color: white; border: none; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                            <i class="fa-solid fa-trash-can"></i> 重置清單
+                        </button>
+                    </div>
+                    <div class="checklist-progress-wrapper" style="background: #E2E8F0; border-radius: 8px; height: 20px; overflow: hidden; margin-bottom: 20px; position: relative; display: flex; align-items: center; border: 1px solid #CBD5E1;">
+                        <div id="checklist-progress-bar" style="background: var(--primary); height: 100%; width: 0%; transition: width 0.3s ease;"></div>
+                        <span id="checklist-progress-text" style="position: absolute; left: 10px; font-size: 11px; font-weight: 700; color: #475569;">準備進度：0% (0/0)</span>
+                    </div>
                     <div class="checklist-grid">
                         <div class="checklist-category">
                             <h5><i class="fa-solid fa-id-card"></i> 重要證件與金流</h5>
@@ -1524,16 +1800,66 @@
                 </div>
             </div>
 
-        </div>
-    </div>
+            <div class="widgets-layout">
+                <div class="weather-section" id="weather-section" style="margin-top: 0; margin-bottom: 0;">
+                    <h3><i class="fa-solid fa-cloud-sun-rain"></i> ☀️ 歷史氣候預報及穿著指南</h3>
+                    <div class="weather-grid" id="weather-grid">
+                        <!-- Dynamic Weather Card will be injected here -->
+                    </div>
+                    <div class="weather-tips" id="weather-tips-content">
+                        <!-- Dynamic Tips will be injected here -->
+                    </div>
+                </div>
 
-    <div class="weather-section" id="weather-section" style="margin-top: 25px;">
-        <h3><i class="fa-solid fa-cloud-sun-rain"></i> ☀️ 歷史氣候預報及穿著指南</h3>
-        <div class="weather-grid" id="weather-grid">
-            <!-- Dynamic Weather Card will be injected here -->
-        </div>
-        <div class="weather-tips" id="weather-tips-content">
-            <!-- Dynamic Tips will be injected here -->
+                <div class="converter-section" id="converter-section">
+                    <h3><i class="fa-solid fa-coins"></i> 🪙 韓元/台幣即時換算</h3>
+                    <div class="converter-box">
+                        <div class="converter-input-group">
+                            <label>🇰🇷 韓元 (KRW)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="krw-input" placeholder="請輸入韓元金額" oninput="convertKrwToTwd(this.value)" min="0" inputmode="numeric">
+                                <span class="currency-unit">₩</span>
+                            </div>
+                        </div>
+                        
+                        <div class="converter-swap-icon">
+                            <i class="fa-solid fa-arrows-up-down"></i>
+                        </div>
+
+                        <div class="converter-input-group">
+                            <label>🇹🇼 台幣 (TWD) <span style="font-weight: normal; font-size: 11px; opacity: 0.8;">(預估)</span></label>
+                            <div class="input-wrapper">
+                                <input type="number" id="twd-input" placeholder="請輸入台幣金額" oninput="convertTwdToKrw(this.value)" min="0" inputmode="numeric">
+                                <span class="currency-unit">$</span>
+                            </div>
+                        </div>
+
+                        <div class="rate-config">
+                            <div class="rate-label" style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 6px;">
+                                <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
+                                    <span>目前匯率設定：1 TWD = </span>
+                                    <input type="number" id="exchange-rate-input" value="41.5" step="0.1" oninput="updateExchangeRate(this.value)" style="width: 50px; text-align: center; border: 1px solid #CBD5E1; border-radius: 4px; padding: 2px; font-weight: bold; font-size: 12px;" inputmode="decimal">
+                                    <span> KRW</span>
+                                </div>
+                                <button onclick="fetchExchangeRate()" title="點擊重新取得最新匯率" style="background: none; border: none; color: #d97706; cursor: pointer; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: bold; transition: background 0.2s; outline: none;">
+                                    <i class="fa-solid fa-arrows-rotate"></i> 點此更新
+                                </button>
+                            </div>
+                            <p class="rate-tip">💡 點擊上方數值可自訂當前匯率</p>
+                            <div id="rate-fetch-status">🔄 正在自動同步即時匯率...</div>
+                        </div>
+
+                        <div class="quick-table-title">🛍️ 常用金額快速對照表</div>
+                        <div class="quick-table">
+                            <div class="quick-row" onclick="applyQuickKrw(1000)"><span>1,000 ₩</span><span id="q-1000">≈ 24 元</span></div>
+                            <div class="quick-row" onclick="applyQuickKrw(5000)"><span>5,000 ₩</span><span id="q-5000">≈ 120 元</span></div>
+                            <div class="quick-row" onclick="applyQuickKrw(10000)"><span>10,000 ₩</span><span id="q-10000">≈ 241 元</span></div>
+                            <div class="quick-row" onclick="applyQuickKrw(50000)"><span>50,000 ₩</span><span id="q-50000">≈ 1,205 元</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -2024,6 +2350,44 @@
         }
     }
 
+    function updateChecklistProgress() {
+        const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+        const total = checkboxes.length;
+        if (total === 0) return;
+        let checkedCount = 0;
+        checkboxes.forEach(cb => {
+            if (cb.checked) checkedCount++;
+        });
+        const pct = Math.round((checkedCount / total) * 100);
+        const bar = document.getElementById('checklist-progress-bar');
+        const text = document.getElementById('checklist-progress-text');
+        if (bar) bar.style.width = pct + '%';
+        if (text) text.innerText = `準備進度：${pct}% (${checkedCount}/${total})`;
+    }
+
+    function resetChecklist() {
+        if (confirm('確定要清除所有勾選項目，重新開始整理行李嗎？')) {
+            document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.parentElement.classList.remove('done');
+                localStorage.removeItem(checkbox.id);
+            });
+            updateChecklistProgress();
+        }
+    }
+
+    function toggleChecklistItem(checkbox) {
+        const label = checkbox.parentElement;
+        if (checkbox.checked) {
+            label.classList.add('done');
+            localStorage.setItem(checkbox.id, 'checked');
+        } else {
+            label.classList.remove('done');
+            localStorage.removeItem(checkbox.id);
+        }
+        updateChecklistProgress();
+    }
+
     function toggleDarkMode() {
         const body = document.body;
         const isDark = body.classList.toggle('dark-mode');
@@ -2038,6 +2402,130 @@
             btn.innerHTML = `<i class="fa-solid fa-sun"></i> <span>淺色模式</span>`;
         } else {
             btn.innerHTML = `<i class="fa-solid fa-moon"></i> <span>深色模式</span>`;
+        }
+    }
+
+    // Currency Converter Logic
+    let currentExchangeRate = 41.5; // Default: 1 TWD = 41.5 KRW
+
+    function updateExchangeRate(val) {
+        const parsed = parseFloat(val);
+        if (parsed > 0) {
+            currentExchangeRate = parsed;
+            localStorage.setItem('customExchangeRate', parsed);
+            
+            // Recalculate based on current input values
+            const krwVal = document.getElementById('krw-input').value;
+            const twdVal = document.getElementById('twd-input').value;
+            
+            if (krwVal) {
+                convertKrwToTwd(krwVal);
+            } else if (twdVal) {
+                convertTwdToKrw(twdVal);
+            }
+            
+            // Update quick-table cards values
+            updateQuickTableValues();
+
+            const statusEl = document.getElementById('rate-fetch-status');
+            if (statusEl) {
+                statusEl.className = '';
+                statusEl.innerHTML = '💡 已儲存您自訂的匯率';
+            }
+        }
+    }
+
+    async function fetchExchangeRate(isInitialLoad = false) {
+        const statusEl = document.getElementById('rate-fetch-status');
+        if (statusEl) {
+            statusEl.className = '';
+            statusEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在自動同步即時匯率...';
+        }
+        try {
+            const response = await fetch('https://open.er-api.com/v6/latest/TWD');
+            if (!response.ok) throw new Error('API response failed');
+            const data = await response.json();
+            if (data && data.result === 'success' && data.rates && data.rates.KRW) {
+                const liveRate = data.rates.KRW;
+                currentExchangeRate = parseFloat(liveRate.toFixed(2));
+                
+                const rateInput = document.getElementById('exchange-rate-input');
+                if (rateInput) {
+                    rateInput.value = currentExchangeRate;
+                }
+                
+                updateQuickTableValues();
+                
+                // Recalculate conversions if inputs have values
+                const krwVal = document.getElementById('krw-input').value;
+                const twdVal = document.getElementById('twd-input').value;
+                if (krwVal) {
+                    convertKrwToTwd(krwVal);
+                } else if (twdVal) {
+                    convertTwdToKrw(twdVal);
+                }
+
+                if (statusEl) {
+                    statusEl.className = 'success';
+                    statusEl.innerHTML = `✅ 已自動取得今日最新匯率（${new Date().toLocaleDateString('zh-TW')}）`;
+                }
+                
+                // Clear any manual item since we updated to latest
+                if (!isInitialLoad) {
+                    localStorage.removeItem('customExchangeRate');
+                }
+            } else {
+                throw new Error('Invalid format');
+            }
+        } catch (err) {
+            console.error('Fetch exchange rate failed:', err);
+            if (statusEl) {
+                statusEl.className = 'error';
+                statusEl.innerHTML = '⚠️ 無法取得即時匯率，已採用先前設定';
+            }
+        }
+    }
+
+    function updateQuickTableValues() {
+        const rates = [1000, 5000, 10000, 50000];
+        rates.forEach(r => {
+            const el = document.getElementById(`q-${r}`);
+            if (el) {
+                const twd = Math.round(r / currentExchangeRate);
+                el.innerText = `≈ ${twd.toLocaleString()} 元`;
+            }
+        });
+    }
+
+    function convertKrwToTwd(krw) {
+        const krwInput = parseFloat(krw);
+        const twdField = document.getElementById('twd-input');
+        if (!twdField) return;
+        if (isNaN(krwInput) || krwInput <= 0) {
+            twdField.value = '';
+            return;
+        }
+        const twd = Math.round(krwInput / currentExchangeRate);
+        twdField.value = twd;
+    }
+
+    function convertTwdToKrw(twd) {
+        const twdInput = parseFloat(twd);
+        const krwField = document.getElementById('krw-input');
+        if (!krwField) return;
+        if (isNaN(twdInput) || twdInput <= 0) {
+            krwField.value = '';
+            return;
+        }
+        const krw = Math.round(twdInput * currentExchangeRate);
+        krwField.value = krw;
+    }
+
+    function applyQuickKrw(krw) {
+        const krwInput = document.getElementById('krw-input');
+        if (krwInput) {
+            krwInput.value = krw;
+            convertKrwToTwd(krw);
         }
     }
 
@@ -2062,6 +2550,36 @@
         // Update the dark mode toggle button text on load
         const isDark = document.body.classList.contains('dark-mode');
         updateToggleBtn(isDark);
+
+        // Restore custom exchange rate if it exists, otherwise fetch latest from API
+        const savedRate = localStorage.getItem('customExchangeRate');
+        if (savedRate) {
+            const parsed = parseFloat(savedRate);
+            if (parsed > 0) {
+                currentExchangeRate = parsed;
+                const rateInput = document.getElementById('exchange-rate-input');
+                if (rateInput) rateInput.value = parsed;
+                const statusEl = document.getElementById('rate-fetch-status');
+                if (statusEl) {
+                    statusEl.className = '';
+                    statusEl.innerHTML = '💡 已載入您先前儲存的自訂匯率';
+                }
+            }
+            updateQuickTableValues();
+        } else {
+            fetchExchangeRate(true);
+        }
+
+        // Restore checklist states
+        document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach(checkbox => {
+            if (localStorage.getItem(checkbox.id) === 'checked') {
+                checkbox.checked = true;
+                checkbox.parentElement.classList.add('done');
+            }
+        });
+
+        // Initialize progress bar and percentage
+        updateChecklistProgress();
 
         const btn = document.querySelector(`button[onclick*="${targetId}"]`);
         if (btn) {
